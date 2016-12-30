@@ -15,10 +15,10 @@ $(document).ready(function() {
 					},
 		messages:	{
 					id_keterangansiswa: {required: "Nama Siswa Harus Diisi"},
-					jarak: {required: "NISN Harus Diisi",number: "NISN Harus Angka",maxlength: "Maksimal 10 Digit"},
-					tempat: {required: "Nama Siswa Harus Diisi"},
-					kendar: {required: "Tempat Lahir Harus Diisi"},
-					ref: {required: "Tanggal Lahir Harus Diisi"}
+					jarak: {required: "Jarak ke Sekolah Harus di Isi",number: "Jarak Harus Angka",maxlength: "Maksimal 10 Digit"},
+					tempat: {required: "Alamat Siswa Harus Diisi"},
+					kendar: {required: "Kendaraan Harus Diisi"},
+					ref: {required: "Referensi Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
 					error.appendTo(element.parent("td"));

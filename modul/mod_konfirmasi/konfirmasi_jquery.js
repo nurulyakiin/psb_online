@@ -47,14 +47,14 @@ $(document).ready(function() {
 				},
 		messages: {
 				noform: {required: "No Formulir harus diisi"},
-				nopes: {required: "Alamat Sekolah harus diisi"},
-				jns: {required: "No Formulir harus diisi"},
-				email: {required: "No Formulir harus diisi"},
-				nabank: {required: "Alamat Sekolah harus diisi"},
-				narim: {required: "Alamat Sekolah harus diisi"},
-				tgl: {required: "Alamat Sekolah harus diisi"},
-				norek: {required: "No Handphone harus diisi",number: "No rekening harus Angka"},
-				tobay: {required: "E-mail harus diisi"},
+				nopes: {required: "No Peserta harus diisi"},
+				jns: {required: "Jenis Pembayaran harus diisi"},
+				email: {required: "Email harus diisi"},
+				nabank: {required: "Nama Bank harus diisi"},
+				narim: {required: "Nama Pengirim harus diisi"},
+				tgl: {required: "Tanggal Kirim harus diisi"},
+				norek: {required: "No Rekening harus diisi",number: "No rekening harus Angka"},
+				tobay: {required: "Total Bayar harus diisi"},
 				captcha:  "Captcha harus diisi"
 				},
 		errorPlacement: function(error, element) {

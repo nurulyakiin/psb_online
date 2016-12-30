@@ -17,12 +17,12 @@ $(document).ready(function() {
 					},
 		messages:	{
 					id_keterangansiswa: {required: "Nama Siswa Harus Diisi"},
-					nmwali: {required: "NISN Harus Diisi"},
-					alamat: {required: "Nama Siswa Harus Diisi"},
-					notelp: {required: "Tempat Lahir Harus Diisi"},
-					tmp_lahirwali: {required: "Tanggal Lahir Harus Diisi"},
+					nmwali: {required: "Nama Wali Harus Diisi"},
+					alamat: {required: "Alamat Wali Harus Diisi"},
+					notelp: {required: "No Telp Harus Diisi"},
+					tmp_lahirwali: {required: "Tempat Lahir Harus Diisi"},
 					tgl_lahirwali: {required: "Tanggal Lahir Harus Diisi"},
-					kerja: {required: "Tanggal Lahir Harus Diisi"}
+					kerja: {required: "Pekerjaan Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
 					error.appendTo(element.parent("td"));

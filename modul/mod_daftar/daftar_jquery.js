@@ -46,7 +46,7 @@ $(document).ready(function() {
 				nisn: {required: "NISN harus diisi",number: "NISN harus Angka",minlength: "Minimal 10 Digit",maxlength: "Maksimal 10 Digit"},
 				// asal_skl: {required: "Alamat Sekolah harus diisi",},
 				// noformulir: {required: "No Formulir harus diisi"},
-				prog: {required: "Alamat Sekolah harus diisi"},
+				prog: {required: "Program Sekolah harus diisi"},
 				nohp: {required: "No Handphone harus diisi",number: "No Handphone harus Angka"},
 				email: {required: "E-mail harus diisi",email: "Masukkan E-mail yang valid"},
 				captcha:  "Captcha harus diisi"

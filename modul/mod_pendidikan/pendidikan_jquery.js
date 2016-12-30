@@ -16,11 +16,11 @@ $(document).ready(function() {
 					},
 		messages:	{
 					id_keterangansiswa: {required: "Nama Siswa Harus Diisi"},
-					asal: {required: "NISN Harus Diisi"},
-					sttb: {required: "Nama Siswa Harus Diisi"},
-					lama: {required: "Tempat Lahir Harus Diisi"},
-					tgl: {required: "Tanggal Lahir Harus Diisi"},
-					pindah: {required: "Tanggal Lahir Harus Diisi"}
+					asal: {required: "Asal Sekolah Harus Diisi"},
+					sttb: {required: "STTB Harus Diisi"},
+					lama: {required: "Lamanya Harus Diisi"},
+					tgl: {required: "Tanggal Harus Diisi"},
+					pindah: {required: "Pindah Tanggal Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
 					error.appendTo(element.parent("td"));
