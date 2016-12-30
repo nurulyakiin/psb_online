@@ -1,0 +1,52 @@
+<?
+session_start();
+
+include '../../config/koneksi.php';
+
+$id_keterangansiswa  	= $_POST['id_keterangansiswa'];
+$akte		= $_FILES['akte'];
+$ijazah		= $_FILES['ijazah'];
+$skhun		= $_FILES['skhun'];
+$kk			= $_FILES['kk'];
+$skb		= $_FILES['skb'];
+$nama_file  = $_FILES['gambar']['name'];
+$ukuran_file= $_FILES['gambar']['size'];
+$tipe_file  = $_FILES['gambar']['type'];
+$tmp_file  = $_FILES['gambar']['tmp_name'];
+
+$path1 = "../../images/document/akte/".$akte;
+$path2 = "../../images/document/ijazah/".$ijazah;
+$path3 = "../../images/document/skhun/".$skhun;
+$path4 = "../../images/document/kk/".$kk;
+$path5 = "../../images/document/skb/".$skb;
+$path6 = "../../images/document/photo/".$nama_file;
+
+// if($tipe_file == "image/jpeg" || $tipe_file == "image/png" || $tipe_file == "image/jpg"){ // Cek apakah tipe file yang diupload adalah JPG / JPEG / PNG
+  // Jika tipe file yang diupload JPG / JPEG / PNG, lakukan :
+  if($ukuran_file <= 1000000){ // Cek apakah ukuran file yang diupload kurang dari sama dengan 1MB
+    // Jika ukuran file kurang dari sama dengan 1MB, lakukan :
+    // Proses upload
+    move_uploaded_file($tmp_file, $path1, $path2, $path3, $path4, $path5, $path6) // Cek apakah gambar berhasil diupload atau tidak
+      // Jika gambar berhasil diupload, Lakukan :  
+      // Proses simpan ke Database
+      mysql_query("INSERT INTO psb_dokumen(id_keterangansiswa, akte, ijazah, skhun, kk, skb, photo, ukuran, tipe) 
+        VALUES('$akte', '$ijazah', '$skhun', '$kk', '$skb', '$nama_file', '$ukuran_file', '$tipe_file')");
+      
+      // $sql = mysql_query($query); // Eksekusi/ Jalankan query dari variabel $query
+      
+      // if($query){ // Cek jika proses simpan ke database sukses atau tidak
+      //   // Jika Sukses, Lakukan :
+      //   echo "sukses";
+      // }else{
+      //   // Jika Gagal, Lakukan :
+      //   echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
+      // }
+  }else{
+    // Jika ukuran file lebih dari 1MB, lakukan :
+    echo "Maaf, Ukuran gambar yang diupload tidak boleh lebih dari 1MB";
+  }
+// }else{
+//   // Jika tipe file yang diupload bukan JPG / JPEG / PNG, lakukan :
+//   echo "Maaf, Tipe gambar yang diupload harus JPG / JPEG / PNG.";
+// }
+?>

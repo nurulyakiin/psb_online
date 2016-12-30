@@ -1,0 +1,149 @@
+/**
+ *********************************************
+ * Prototype of styles for horizontal CSS-menu
+ * @data 30.06.2009
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <div><ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <div><ul><li><a href="#"><span>level 3</span></a></li></ul></div>
+ *                  </li>
+ *              </ul></div>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+/* menu::base */
+
+
+div#menu li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 0;
+    display: block;
+    float: left;
+    z-index: 9;
+    width: auto;
+}
+div#menu ul ul li {
+    z-index: 9;
+}
+div#menu li div {
+    list-style: none;
+    float: left;
+    position: absolute;
+    z-index: 11;
+    top: 36px;
+    left: 0;
+    visibility: hidden;
+    width: 187px;
+    padding: 0 0 11px 7px;
+    background: url(../images/menu/submenu-bottom.png) no-repeat 7px bottom;
+    _background-image: url(../images/menu/submenu-bottom.gif);
+    margin: 0px 0 0 -4px;
+}
+div#menu li:hover>div {
+    visibility: visible;
+}
+
+/* menu::level1 */
+/* menu::level2 */
+div#menu ul ul li {
+    background: none;
+    padding: 0;
+}
+div#menu ul ul {
+    padding-top: 10px;
+}
+div#menu ul ul a {
+    padding: 0;
+    height: auto;
+    float: none;
+    display: block;
+    line-height: 26px;
+    font-size: 12px;
+    color: #ffffff;
+    z-index: -1;
+    padding-left: 5px;
+    white-space: normal;
+    width: 160px;
+    margin: 0 5px;
+    text-transform: none;
+}
+    
+div#menu ul ul a span {
+    padding: 0 15px;
+    line-height: 26px;
+    font-size: 12px;
+}
+div#menu li.current ul a,
+div#menu li.current ul a span {
+    background:none;
+}
+div#menu ul ul a:hover {
+    background: url(../images/menu/submenu-selected-bottom.png) no-repeat 5px bottom;
+}
+div#menu ul ul a.parent:hover {
+    background: url(../images/menu/submenu-pointer-selected-bottom.png) no-repeat 5px bottom;
+}
+div#menu ul ul span {
+    margin-top: 0;
+    text-align: left;
+}
+div#menu ul ul li.last { background: none; }
+div#menu ul ul li {
+    width: 100%;
+}
+
+/* menu::level3 */
+div#menu ul ul div {
+    width: 180px;
+    padding: 15px 0px 8px 0px;
+    margin: -44px 0 0 169px !important;
+    background: url(../images/menu/subsubmenu-top.png) no-repeat 0px 0;
+    _background-image: url(../images/menu/subsubmenu-top.gif);
+}
+*+html div#menu ul ul div { height:10px }
+*+html div#menu.ie7 ul ul div { height:auto }
+div#menu ul ul ul {
+    padding: 0 4px 5px 1px;
+    background: url(../images/menu/submenu-bottom.png) no-repeat 0px bottom;
+    _background-image: url(../images/menu/submenu-bottom.gif);
+}
+div#menu ul ul div li {
+    position:relative;
+    top:-5px;
+}
+
+/* lava lamp */
+div#menu li.back {
+    background: url(../images/menu/lavalamp-kiri.png) no-repeat 0 0;
+    _background-image: url(../images/menu/lavalamp-left.gif);
+    width: 10px;
+    height: 46px;
+    z-index: 8;
+    position: absolute;
+	padding: 0;
+    margin: 0;
+}
+
+div#menu li.back .left {
+    padding:0;
+    width:auto;
+    background: url(../images/menu/lavalamp-kanan.png) no-repeat right 0;
+    _background-image: url(../images/menu/lavalamp-right1.gif);
+    height: 46px;
+    margin: 0 5px 0 10px;
+    _margin-right: 2px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    visibility: visible;
+}
