@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'formulir.php';
     break;
-  case 'edit_bio':
+  case 'edit_form':
 		include 'formulir_form.php';
     break;  
   case 'v_edit':

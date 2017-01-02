@@ -84,6 +84,7 @@ while($items=mysql_fetch_array($res)){
 	$adm_id		=	$items['adm_id'];
 	$no_peserta	=	$items['no_peserta'];
 	$no_formulir=	$items['no_formulir'];
+	$id_formulir=	$items['id_formulir'];
 	$nisn		=	$items['nisn'];
 	$email		=	$items['email'];
 	$no_hp		=	$items['no_hp'];
@@ -114,7 +115,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-num"><?=$program_keahlian?></td>
 	<td class="tbl-cell"><?=$ver?></td>
 	<td class="tbl-controls">
-		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$id_formulir","Edit"); echo"$edit";?> -->
+		<?$edit=Edit("?module=$_GET[module]&act=edit_form&id=$id_formulir","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_formulir","$id_formulir","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>
