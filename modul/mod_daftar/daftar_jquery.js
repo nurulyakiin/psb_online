@@ -34,7 +34,7 @@ $(document).ready(function() {
 	})
 	$("#daftar").validate({
 		rules: {	
-				nisn: {required: true,number: true, minlength: 10, maxlength:11},		
+				nisn: {required: true,number: true, minlength: 10, maxlength:10},		
 				// asal_skl: {required: true},
 				// noformulir: {required: true},
 				prog: {required: true},
