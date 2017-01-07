@@ -92,6 +92,7 @@ while($items=mysql_fetch_array($res)){
 	$berangkat_dengan	=	$items['berangkat_dengan'];
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);
 	$referensi		=	$items['referensi'];
+	$id_tempattinggal		=	$items['id_tempattinggal'];
 	$i++;
 
 	// if  ($items['sts_verifikasi']==0){if  ($status == 0){$ver = "<font color=red>Belum</font>";}
@@ -114,7 +115,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-cell"><?=$referensi?></td>
 	<td class="tbl-controls">
 		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$nisn","Edit"); echo"$edit";?> -->
-		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_keterangansiswa","$nama_lengkap","Hapus"); echo"$hapus";?>	
+		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_tempattinggal","$nama_lengkap","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>
 <?

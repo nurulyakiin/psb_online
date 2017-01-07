@@ -102,6 +102,7 @@ while($items=mysql_fetch_array($res)){
 	$nama_pembayaran		=	$items['nama_pembayaran'];
 	$no_perserta	=	$items['no_perserta'];
 	$no_formulir	=	$items['no_formulir'];
+	$id_konfirmasi	=	$items['id_konfirmasi'];
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);
 	$nama_bank		=	$items['nama_bank'];
 	$total_pembayaran		=	$items['total_pembayaran'];
@@ -133,8 +134,8 @@ while($items=mysql_fetch_array($res)){
 	<td clASs="tbl-cell"><?=$no_rek?></td>
 	<td clASs="tbl-cell"><?=$tgl_pembayaran?></td>
 	<td clASs="tbl-controls">
-		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$nisn","Edit"); echo"$edit";?> -->
-		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$nisn","$nama_lengkap","Hapus"); echo"$hapus";?>	
+		<?$edit=Edit("?module=$_GET[module]&act=edit_konfirmasi&id=$id_konfirmasi","Edit"); echo"$edit";?>
+		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_konfirmasi","$no_perserta","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>
 <?

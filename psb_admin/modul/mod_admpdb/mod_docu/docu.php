@@ -90,6 +90,7 @@ while($items=mysql_fetch_array($res)){
 	$filesize	=	$items['filesize'];
 	$filetype	=	$items['filetype'];
 	$location	=	$items['location'];
+	$id_dokumen	=	$items['id_dokumen'];
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);
 	$i++;
 
@@ -113,7 +114,7 @@ while($items=mysql_fetch_array($res)){
 	<td clASs="tbl-controls">
 		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$nisn","Edit"); echo"$edit";?> -->
 		<a href="<?php echo $location;?>"><img src="images/download.gif" border="0"/></a>
-		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$nisn","$nama_lengkap","Hapus"); echo"$hapus";?>
+		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_dokumen","$nama_lengkap","Hapus"); echo"$hapus";?>
 	</td>
 </tr>
 <?

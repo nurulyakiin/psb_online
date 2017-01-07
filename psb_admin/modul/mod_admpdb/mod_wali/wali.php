@@ -96,6 +96,7 @@ while($items=mysql_fetch_array($res)){
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);
 	$ttl		=	$items['ttl'];
 	$pekerjaan		=	$items['pekerjaan'];
+	$id_wali		=	$items['id_wali'];
 	$i++;
 
 	// if  ($items['sts_verifikASi']==0){if  ($status == 0){$ver = "<font color=red>Belum</font>";}
@@ -119,7 +120,7 @@ while($items=mysql_fetch_array($res)){
 	<td clASs="tbl-cell"><?=$no_telp?></td>
 	<td clASs="tbl-controls">
 		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$nisn","Edit"); echo"$edit";?> -->
-		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_keterangansiswa","$nama_lengkap","Hapus"); echo"$hapus";?>	
+		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_wali","$nama_lengkap","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>
 <?

@@ -60,6 +60,12 @@ elseif($_GET['module']=='login'){
 elseif($_GET['module']=='akun'){
   include 'modul/mod_akun/akun.php';
 }
+elseif($_GET['module']=='pay'){
+  include 'modul/mod_pay/pay.php';
+}
+elseif($_GET['module']=='surat'){
+  include 'modul/mod_surat/surat.php';
+}
 elseif($_GET['module']=='dokumen'){
   include 'modul/mod_dokumen/dokumen.php';
 }

@@ -9,7 +9,7 @@ if ($act=='v_edit'){
 		else{
 			$v = '0';
 		}
-	mysql_query("UPDATE ppdb_adm_siswa SET sts_verifikasi = '$v' WHERE adm_id='$id'");
+	mysql_query("UPDATE ppdb_adm_siswa SET sts_verifikasi = '$v' WHERE id_konfirmasi='$id'");
 	include 'js/back.js';
 }
 elseif ($act=='s_edit'){
@@ -20,17 +20,11 @@ elseif ($act=='s_edit'){
 		else{
 			$s = '0';
 		}
-	mysql_query("UPDATE ppdb_adm_siswa SET sts_seleksi = '$s' WHERE adm_id='$id'");
+	mysql_query("UPDATE ppdb_adm_siswa SET sts_seleksi = '$s' WHERE id_konfirmasi='$id'");
 	include "js/back.js";
 }
 elseif ($act=='del'){
-	mysql_query("DELETE FROM ppdb_bind WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_bing WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_ipa WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_ips WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_mat WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_biodata WHERE nisn='$id'");
-	mysql_query("DELETE FROM ppdb_adm_siswa WHERE nisn='$id'");
+	mysql_query("DELETE FROM psb_konfirmasi WHERE id_konfirmasi='$id'");
 	include 'js/back.js';
 }
 ?>

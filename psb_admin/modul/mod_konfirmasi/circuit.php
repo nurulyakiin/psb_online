@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'konfirmasi.php';
     break;
-  case 'edit_bio':
+  case 'edit_konfirmasi':
 		include 'konfirmasi_form.php';
     break;  
   case 'v_edit':

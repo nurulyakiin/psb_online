@@ -12,7 +12,7 @@ $nisn		= $_SESSION['nisn'];
 <meta name="robots" content="index, follow">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta http-equiv="Copyright" content="SMKN1SAMARINDA">
+<meta http-equiv="Copyright" content="SMAMITRABINTARO">
 <meta name="author" content="Mohammad Aminuddin">
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="language" content="Indonesia">

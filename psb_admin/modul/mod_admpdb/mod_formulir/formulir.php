@@ -72,7 +72,8 @@ else{
 		  <th class="tbl-header ">No Handphone</th>
 		  <th class="tbl-header ">Tgl Daftar</th>
 		  <th class="tbl-header ">Program Keahlian</th>
-		  <th class="tbl-header ">Verifikasi</th>
+		  <th class="tbl-header ">Status</th>
+		  <th class="tbl-header ">Status Pembayaran Formulir</th>
 		  <th class="tbl-header">Action</th>
 		</tr>
 	</thead>
@@ -85,6 +86,7 @@ while($items=mysql_fetch_array($res)){
 	$no_peserta	=	$items['no_peserta'];
 	$no_formulir=	$items['no_formulir'];
 	$id_formulir=	$items['id_formulir'];
+	$status=	$items['sts_verifikasi'];
 	$nisn		=	$items['nisn'];
 	$email		=	$items['email'];
 	$no_hp		=	$items['no_hp'];
@@ -97,11 +99,6 @@ while($items=mysql_fetch_array($res)){
 	else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Offline</a>";}}
 	else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Online</a>";}
 
-	if  ($items['sts_seleksi']==0){if  ($verif == 0){$sel = "<font color=red>Tidak Lulus</font>";}
-	else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Tidak Lulus</a>";}}
-	else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Lulus</a>";}
-	
-	if  ($status == 0){$sts = "<font color=red>Belum Lengkap</font>";}else{$sts = "Sudah Lengkap";}
 ?>
 
 <tr class="tbl-row tbl-row-even">
@@ -114,6 +111,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-num"><?=$tgl_daftar?></td>
 	<td class="tbl-num"><?=$program_keahlian?></td>
 	<td class="tbl-cell"><?=$ver?></td>
+	<td class="tbl-cell"><?= $status==1 ? 'LUNAS' : 'BELUM LUNAS' ?></td>
 	<td class="tbl-controls">
 		<?$edit=Edit("?module=$_GET[module]&act=edit_form&id=$id_formulir","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_formulir","$id_formulir","Hapus"); echo"$hapus";?>	
@@ -127,7 +125,7 @@ $linkhalaman = $page->navHalaman($_GET['halaman'],$jmlhalaman);
 ?>
 </tbody>
 <tr class="tbl-footer">
-	<td class="tbl-nav" colspan="10">
+	<td class="tbl-nav" colspan="11">
 		<table width="100%" class="tbl-footer">
 			<tbody>
 			<tr>

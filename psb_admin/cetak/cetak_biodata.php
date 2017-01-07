@@ -11,7 +11,6 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
   JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa
   WHERE a.nisn = '$_GET[id]'")or die(mysql_error());
 $res=mysql_fetch_array($sql);
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,14 +18,12 @@ $res=mysql_fetch_array($sql);
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 <style type="text/css">
-<!--
 .style13 {font-size: 12px}
 .style14 {font-size: 10px}
 .style23 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; }
 .style24 {font-size: 10}
 .style25 {font-weight: bold}
 .style26 {font-weight: bold; font-size: 40px;}
--->
 </style>
 </head>
 
@@ -54,13 +51,13 @@ $res=mysql_fetch_array($sql);
   <tr>
     <td width="13%"><span class="style14">1. Nama Lengkap Calon</span></td>
     <td width="1%">:</td>
-    <td colspan="7"><span class="style14"><?=$res['nama_lengkap']?></span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['nama_lengkap'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td width="13%"><span class="style14">&nbsp;&nbsp;&nbsp;&nbsp;Nama Panggilan</span></td>
     <td width="1%">:</td>
-    <td colspan="7"><span class="style14"><?=$res['nama_penggilan']?></span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['nama_penggilan'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -72,7 +69,7 @@ $res=mysql_fetch_array($sql);
   <tr>
     <td width="13%"><span class="style14">2. Tempat dan Tanggal Lahir</span></td>
     <td width="1%">:</td>
-    <td colspan="7"><span class="style14"><?=$res['tempat_tgllahir']?></span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['tempat_tgllahir'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -160,31 +157,32 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="10"><span class="style13">B. KETERANGAN TEMPAT TINGGAL SISWA </span></td>
+    <td colspan="10"><span class="style13">B. KETERANGAN TEMPAT TINGGAL</span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Alamat Peserta Didik </span></td>
+    <td><span class="style14">1. Tinggal Dengan</span></td>
     <td>:</td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['almt_siswa'])?>
-    </span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['tinggal_dengan'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Selama bersekolah tinggal dengan </span></td>
+    <td><span class="style14">2. Jarak Tempat Tinggal dengan SMA Mitra Bintaro</span></td>
     <td>:</td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['tmpt_siswa'])?>
-    </span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['jarak'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Ke Sekolah menggunakan </span></td>
+    <td><span class="style14">3. Berangkat Ke Sekolah dengan Kendaraan</span></td>
     <td>:</td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['kendaraan'])?>
-    </span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['berangkat_dengan'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td><span class="style14">4. Referensi SMA Mitra Bintaro dari</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['referensi'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -194,57 +192,37 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="10"><span class="style13">C. KETERANGAN JASMANI</span> </td>
+    <td colspan="10"><span class="style13">C. KETERANGAN PENDIDIKAN SEBELUMNYA</span> </td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Berat Badan </span></td>
-    <td><span class="style14">:</span></td>
-    <td width="7%"><span class="style14">
-      <?=$res['brt_badan']?>
-    </span></td>
-    <td width="7%" align="right"><span class="style14">Tinggi Badan </span></td>
-    <td width="1%"><span class="style14">:</span></td>
-    <td width="2%"><span class="style14">
-      <?=$res['tgi_badan']?>
-    </span></td>
-    <td width="6%" align="right"><span class="style14">Golongan Darah </span></td>
-    <td width="1%"><span class="style14">:</span></td>
-    <td colspan="2"><span class="style14">
-      <?=BesarKalimat($res['gol_darah'])?>
-    </span></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td colspan="7">&nbsp;</td>
+    <td><span class="style14">1. Asal Sekolah</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['asal_sekolah'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="11"><span class="style13">D. KETERANGAN TENTANG PENDIDIKAN SEBELUMNYA</span> </td>
-  </tr>
-  <tr>
-    <td><span class="style14">Nama Sekolah Asal </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['asl_sekolah'])?>
-    </span></td>
+    <td><span class="style14">2. Tanggal dan Nomor STTB</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['tanggal_sttb'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Alamat Sekolah </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['almt_sekolah'])?>
-    </span></td>
+    <td><span class="style14">3. Lama Belajar</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['lama_belajar'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Kelas di SMP </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['asl_kls_smp'])?>
-    </span></td>
+    <td><span class="style14">3. Diterima di Sekolah Ini Tanggal</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['tanggal_diterima'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">Pindahan dari Sekolah</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['pindahan_dari'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -254,62 +232,75 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="11"><span class="style13">E. KETERANGAN TENTANG ORANG TUA</span> </td>
+    <td colspan="11"><span class="style13">D. KETERANGAN ORANG TUA</span> </td>
   </tr>
   <tr>
-    <td><span class="style14">Nama Ayah </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['nm_ayah'])?>
-    </span></td>
+    <td><span class="style14">1. Nama lengkap Ayah</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['nama_ayah'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Nama Ibu </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['nm_ibu'])?>
-    </span></td>
+    <td><span class="style14">2. Nama lengkap Ibu</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['nama_ibu'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Alamat Orang Tua </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['almt_ortu'])?>
-    </span></td>
+    <td><span class="style14">3. Alamat Tempat Tinggal</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['alamat'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Pekerjaan Ayah </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['kerja_ayah'])?>
-    </span></td>
+    <td><span class="style14">4. No. Telp / Handphone</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['no_telp'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Pekerjaan Ibu </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['kerja_ibu'])?>
-    </span></td>
+    <td><span class="style14">5. Tempat Tanggal Lahir Ayah</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['ttl_ayah'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Penghasilan Orang Tua </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=FormatRupiah($res['hasil_ortu'])?>
-    </span></td>
+    <td><span class="style14">6. Tempat Tanggal Lahir Ibu</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['ttl_ibu'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span class="style14">Tanggungan Biaya </span></td>
-    <td><span class="style14">:</span></td>
-    <td colspan="7"><span class="style14">
-      <?=BesarKalimat($res['tgung_biaya'])?>
-    </span></td>
+    <td><span class="style14">7. Pekerjaan Ayah</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['pekerjaan_ayah'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">8. Penghasilan per Bulan</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['penghasilan'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">9. Pekerjaan Ibu</span></td>
+    <td>:</td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['pekerjaan_ibu'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">10. Pendidikan Tertinggi</span></td>
+    <td>:</td>
+    <td colspan="7">Ayah : <span class="style14"><?=BesarKalimat($res['pendidikan_ayah'])?></span></td>
+    <td colspan="7">Ibu : <span class="style14"><?=BesarKalimat($res['pendidikan_ibu'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td><span class="style14">11. Agama</span></td>
+    <td>:</td>
+    <td colspan="7">Ayah : <span class="style14"><?=BesarKalimat($res['agama_ayah'])?></span></td>
+    <td colspan="7">Ibu : <span class="style14"><?=BesarKalimat($res['agama_ibu'])?></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -319,6 +310,39 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
   </tr>
   <tr>
+    <td colspan="11"><span class="style13">E. KETERANGAN WALI</span> </td>
+  </tr>
+  <tr>
+    <td><span class="style14">1. Nama Wali</span></td>
+    <td><span class="style14">:</span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['nama_wali'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">2. Alamat Wali</span></td>
+    <td><span class="style14">:</span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['alamat_wali'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">3. No. Telp / HP</span></td>
+    <td><span class="style14">:</span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['no_telp'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">4. Tempat Tanggal Lahir</span></td>
+    <td><span class="style14">:</span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['ttl'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="style14">5. Pekerjaan</span></td>
+    <td><span class="style14">:</span></td>
+    <td colspan="7"><span class="style14"><?=BesarKalimat($res['pekerjaan'])?></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -327,7 +351,7 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2" class="style14">Bandung,</td>
+    <td colspan="2" class="style14">Tangerang, .............................. 20 ....</td>
   </tr>
   <tr>
     <td class="style14">Mengetahui</td>
@@ -341,7 +365,7 @@ $res=mysql_fetch_array($sql);
     <td colspan="2" class="style14">&nbsp;</td>
   </tr>
   <tr>
-    <td class="style14">Orang Tua Siswa, </td>
+    <td class="style14">Orang Tua Siswa / Wali </td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -349,7 +373,7 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2" class="style14">Siswa,</td>
+    <td colspan="2" class="style14">Calon Siswa</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -365,7 +389,7 @@ $res=mysql_fetch_array($sql);
   </tr>
   <tr>
     <td><span class="style14">
-      <?=BesarKalimat($res['nm_ayah'])?>
+      
     </span></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -375,7 +399,7 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td width="16%" align="center"><span class="style14">
-      <?=BesarKalimat($res['nm_siswa'])?><hr />
+      <?=BesarKalimat($res['nama_lengkap'])?><hr />
     </span></td>
     <td width="22%">&nbsp;</td>
     <td>&nbsp;</td>
