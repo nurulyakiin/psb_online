@@ -414,7 +414,6 @@ $res=mysql_fetch_array($sql);
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td align="center"><span class="style14">
-      <?=$res['nisn']?>
     </span></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
