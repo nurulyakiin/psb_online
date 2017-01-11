@@ -68,7 +68,7 @@ else{
 	 $page		= new Paging;
 	 $batAS 	= 5;
 	 $posisi	= $page->cariPosisi($batAS);
-	 $res = mysql_query ("SELECT * FROM psb_konfirmasi AS a JOIN psb_formulir AS b ON a.no_perserta=b.no_peserta JOIN psb_keterangansiswa AS c ON b.id_formulir=c.id_formulir ORDER BY a.id_konfirmasi ASC LIMIT $posisi,$batAS");
+	 $res = mysql_query ("SELECT * FROM psb_konfirmasi AS a JOIN psb_formulir AS b ON a.no_perserta=b.no_peserta ORDER BY a.id_konfirmasi ASC LIMIT $posisi,$batAS");
 	 $jmldata = mysql_num_rows(mysql_query("SELECT * FROM psb_konfirmasi AS a, psb_formulir AS b where a.no_perserta=b.no_peserta "));
 }
 
@@ -82,7 +82,6 @@ else{
 	<thead>
 		<tr>
 		  <th clASs="tbl-header ">No</th>
-		  <th clASs="tbl-header ">Nama Peserta</th>
 		  <th clASs="tbl-header ">No Peserta</th>
 		  <th clASs="tbl-header ">No Formulir</th>
 		  <th clASs="tbl-header ">Nama Pengirim</th>
@@ -124,7 +123,6 @@ while($items=mysql_fetch_array($res)){
 
 <tr clASs="tbl-row tbl-row-even">
 	<td clASs="tbl-num"><?=$i?></td>
-	<td clASs="tbl-cell"><?=$nama_lengkap?></td>
 	<td clASs="tbl-num"><?=$no_perserta?></td>
 	<td clASs="tbl-num"><?=$no_formulir?></td>
 	<td clASs="tbl-num"><?=$nama_pembayaran?></td>
