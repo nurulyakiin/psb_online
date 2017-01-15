@@ -18,12 +18,10 @@ $res=mysql_fetch_array($sql);
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 <style type="text/css">
-<!--
 .style1 {
 	font-size: 36px;
 	font-weight: bold;
 }
--->
 </style>
 </head>
 

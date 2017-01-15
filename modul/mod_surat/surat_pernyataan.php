@@ -10,6 +10,21 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
   JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa
   WHERE a.nisn = '$_SESSION[nisn]'")or die(mysql_error());
 $res=mysql_fetch_array($sql);
+
+$sql2 = mysql_query("SELECT count(*) FROM psb_formulir AS a
+        JOIN psb_keterangansiswa AS b ON AS b ON a.id_formulir=b.id_formulir
+        JOIN psb_wali AS c ON b.id_keterangansiswa=c.id_keterangansiswa
+        WHERE a.nisn = '$_GET[id]'")
+$row = mysql_fetch_array($sql2);
+
+if ($row[0]=="1"){
+  $query = mysql_query("SELECT * FROM psb_wali WHERE username='$username'")or die (mysql_error());
+  $row2 = mysql_fetch_array($query);
+}
+else
+{
+
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
