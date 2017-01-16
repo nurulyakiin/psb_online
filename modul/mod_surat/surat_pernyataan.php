@@ -6,25 +6,18 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
   JOIN psb_keterangansiswa AS b ON a.id_formulir=b.id_formulir
   JOIN psb_pendidikan AS c ON b.id_keterangansiswa=c.id_keterangansiswa
   JOIN psb_tempattinggal AS d ON c.id_keterangansiswa=d.id_keterangansiswa
-  JOIN psb_wali AS e ON d.id_keterangansiswa=e.id_keterangansiswa
-  JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa
+  JOIN psb_dataorangtua AS e ON d.id_keterangansiswa=e.id_keterangansiswa
   WHERE a.nisn = '$_SESSION[nisn]'")or die(mysql_error());
 $res=mysql_fetch_array($sql);
 
-$sql2 = mysql_query("SELECT count(*) FROM psb_formulir AS a
-        JOIN psb_keterangansiswa AS b ON AS b ON a.id_formulir=b.id_formulir
-        JOIN psb_wali AS c ON b.id_keterangansiswa=c.id_keterangansiswa
-        WHERE a.nisn = '$_GET[id]'")
-$row = mysql_fetch_array($sql2);
-
-if ($row[0]=="1"){
-  $query = mysql_query("SELECT * FROM psb_wali WHERE username='$username'")or die (mysql_error());
-  $row2 = mysql_fetch_array($query);
-}
-else
-{
-
-}
+$sql2 = mysql_query("SELECT * FROM psb_formulir AS a
+  JOIN psb_keterangansiswa AS b ON a.id_formulir=b.id_formulir
+  JOIN psb_pendidikan AS c ON b.id_keterangansiswa=c.id_keterangansiswa
+  JOIN psb_tempattinggal AS d ON c.id_keterangansiswa=d.id_keterangansiswa
+  JOIN psb_wali AS e ON d.id_keterangansiswa=e.id_keterangansiswa
+  JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa
+  WHERE a.nisn = '$_SESSION[nisn]'")or die(mysql_error());
+$res2=mysql_fetch_array($sql2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,12 +25,10 @@ else
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 <style type="text/css">
-<!--
 .style1 {
   font-size: 36px;
   font-weight: bold;
 }
--->
 </style>
 </head>
 
@@ -92,17 +83,17 @@ else
   <tr>
     <td height="23">6. Nama Ortu / Wali</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2"><?= $res2['id_wali']=='' ? BesarKalimat($res['nama_ayah']) : BesarKalimat($res2['nama_wali']) ?></td>
   </tr>
   <tr>
     <td height="23">7. Pekerjaan Ortu / Wali</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2"><?= $res2['id_wali']=='' ? BesarKalimat($res['pekerjaan_ayah']) : BesarKalimat($res2['pekerjaan']) ?></td>
   </tr>
   <tr>
     <td height="23">8. Agama</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2"><?= $res2['id_wali']=='' ? BesarKalimat($res['agama_ayah']) : BesarKalimat($res['agama_ayah']) ?></td>
   </tr>
   <tr>
     <td height="23">9. Hubungan Keluarga</td>
@@ -112,7 +103,7 @@ else
   <tr>
     <td height="23">10 . Alamat Ortu / Wali</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2"><?= $res2['id_wali']=='' ? BesarKalimat($res['alamat']) : BesarKalimat($res2['alamat_wali']) ?></td>
   </tr>
   <tr>
     <td height="23" colspan="4">&nbsp;</td>
@@ -154,7 +145,7 @@ else
   <td height="23" colspan="1" align="center">Materai 6.000</td>
   </tr>
   <tr>
-    <td height="23" colspan="2" align="center">.................................................</td>
+  <td height="23" colspan="2" align="center"><?= $res2['id_wali']=='' ? BesarKalimat($res['nama_ayah']) : BesarKalimat($res2['nama_wali']) ?></td>
   <td height="23" colspan="1" align="center">............................................</td>
   </tr>
 </table>
