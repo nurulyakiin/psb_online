@@ -84,8 +84,8 @@
 	  <tr>
 	  	  <td>&nbsp;</td>
         <td><br></br></td>
-	     <td colspan="4"><button type="submit" id="submit" name="submit" class="btn btn-primary">Kirim</button>
-	<button type="reset" name="Reset" class="btn btn-primary">Batal</button></td>
+	     <td colspan="1"><input name="submit" id="submit" class="btn btn-primary" type="submit" value="SIMPAN" />
+		<input name="reset" id="reset" class="btn btn-warning" onclick="window.location.replace('?module=akun')" type="button" value="BATAL" /></td>
       </tr>
 	</table>
 </form>

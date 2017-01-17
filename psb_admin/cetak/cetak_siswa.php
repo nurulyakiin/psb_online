@@ -19,6 +19,9 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
 
 <body>
 <table width="200%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0">
+<tr>
+  <td width="200%" colspan="9"><img src="../../images/kop_surat.jpg" width="200%" height="146"/></td>
+</tr>
   <tr>
     <td width="3%" align="center">No</td>
     <td width="16%" align="center">No Formulir </td>

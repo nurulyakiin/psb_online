@@ -109,7 +109,8 @@ if ($_POST){
 		<td colspan="6">&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td colspan="6"><input class="button" type="submit" value="upload" /></td>
+		<td colspan="1"><input name="submit" id="submit" class="btn btn-primary" type="submit" value="UPLOAD" />
+		<input name="reset" id="reset" class="btn btn-warning" onclick="window.location.replace('?module=akun')" type="button" value="BATAL" /></td>
 	  </tr>
 	  <tr>
 		<td colspan="6"></td>

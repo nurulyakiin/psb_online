@@ -103,7 +103,8 @@ include_once( 'includes/meta.php'); ?>
      			   <td><input type="text" class="form-control" name="captcha" id="captcha" style="width: 165px"/></td>
    		</tr>
   		<tr>
-			<td><button type="submit" id="submit" class="btn btn-primary"><i class="small fa fa-pencil"></i> Daftar</button></td>
+			<td><button type="submit" id="submit" class="btn btn-primary"><i class="small fa fa-pencil"></i> Daftar</button>
+    <input name="reset" id="reset" class="btn btn-warning" onclick="window.location.replace('?module=home')" type="button" value="BATAL" /></td>
 			<td>&nbsp;</td>
     			<td>&nbsp;</td>	
 		</tr>
