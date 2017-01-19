@@ -14,10 +14,8 @@ body {
 
 .startbootstrap-nav {
     border-color: #a5423b;
-    opacity: 0.5;
     background-color: #b84d45;
     box-shadow: 0 1px 0 rgba(255,255,255,.1);
-    background: rgba(76, 175, 80, 0.5)
 }
 
 .startbootstrap-nav .navbar-brand {
@@ -112,6 +110,11 @@ body {
 .intro-marketing {
     padding-bottom: 3em;
     background-color: #fbdedb;
+}
+
+.intro-marketing2 {
+    padding-bottom: 3em;
+    background-color: #d6d6c2;
 }
 
 .intro-marketing-box {

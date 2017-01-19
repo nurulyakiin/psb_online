@@ -2,7 +2,7 @@
 <table border="0" align="center">
   <tr>
     <td align="right">No Peserta</td>
-    <input type="hidden" name="module" value="biodata" />
+    <input type="hidden" name="module" value="formulir" />
     <td align="left"><input name="nopes" type="text" id="nopes" size="30" /></td>
   </tr>
   <tr>
@@ -24,28 +24,27 @@ if (isset($submit) == 'Cari'){
 	 $page		= new Paging9;
 	 $batas 	= 5;
 	 $posisi	= $page->cariPosisi($batas);
-	 if(isset($nopes) && $nopes != '') $args[] = "a.no_peserta = '$no_peserta'";
-	 if(isset($noform) && $noform != '') $args[] = "a.no_formulir like '%%$noform%%'";
-	 
+	 if(isset($nopes) && $nopes != '') $args[] = "no_peserta = '$nopes'";
+	 if(isset($noform) && $noform != '') $args[] = "no_formulir like '%%$noform%%'";
+	 var_dump('4');
 		if(count($args)>1){
 			$arg = " where ".$args[0];
 			$i = 1;
 			while ($i < count($args)){
 				$arg .= " and ".$args[$i];
 				$i++;
+				var_dump('1');
 			}
+			var_dump('2');
 		}
 		elseif (count($args)==1){
 			$arg = " where ".$args[0];
+			var_dump('3');
 		}
 	 
-	 $res = mysql_query ("SELECT *
-						  FROM psb_formulir
-						  $arg ORDER BY no_formulir AS LIMIT $posisi,$batas");
+	 $res = mysql_query ("SELECT * FROM psb_formulir $arg ORDER BY no_formulir AS LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT *
-											FROM psb_formulir
-											$arg"));
+	 $jmldata = mysql_num_rows(mysql_query("SELECT * FROM psb_formulir$arg"));
 }
 else{
 	 $page		= new Paging;

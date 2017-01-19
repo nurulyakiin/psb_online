@@ -32,7 +32,7 @@ elseif ($_GET['module']=='docu'){
 }
 elseif ($_GET['module']=='konfirmasi'){
 	include 'js/dtpicker.js';
-	include 'modul/mod_admpdb/mod_konfirmasi/konfirmasi_jquery.js';
+	include 'modul/mod_konfirmasi/konfirmasi_jquery.js';
 }
 elseif ($_GET['module']=='nilai'){
 	include 'js/avg.js';
