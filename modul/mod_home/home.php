@@ -60,7 +60,7 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <h2 class="page-header">Informasi Pendaftaran :</h2>
+                    <h2 class="page-header">Informasi Pendaftaran & Peta :</h2>
                 </div>
 
                 <!-- <div class="col-md-4">

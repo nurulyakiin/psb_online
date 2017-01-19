@@ -1,6 +1,6 @@
     <link href="https://plus.google.com/+Startbootstrap" rel="author">
     <link href="https://plus.google.com/+Startbootstrap" rel="publisher">
-    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon2.png" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

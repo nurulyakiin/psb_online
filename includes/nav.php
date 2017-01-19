@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">PSB SMA Mitra Bintaro</a>
+                <a class="navbar-brand" href="index.php"><img src="img/small.jpg">&nbsp;PSB SMA MITRA BINTARO</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
