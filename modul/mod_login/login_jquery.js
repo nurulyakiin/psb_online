@@ -30,7 +30,6 @@ $(document).ready(function() {
 							window.location.href = '?module=akun';
 						}
 						else{
-							// window.location.href = '?module=akun';
 							$("#info").html(data);
 							$("#info").fadeOut(5000);
 						}
