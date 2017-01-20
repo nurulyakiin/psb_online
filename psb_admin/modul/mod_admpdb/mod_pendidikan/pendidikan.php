@@ -1,13 +1,11 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">NISN</td>
+    <td align="right">NAMA / ASAL SEKOLAH</td>
     <input type="hidden" name="module" value="biodata" />
-    <td align="left"><input name="asal_skl" type="text" id="asal_skl" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">Nama</td>
-    <td align="left"><input name="nama" type="text" id="nama" size="30" /></td>
     <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
@@ -16,47 +14,25 @@
 </table>
 </form>
 <?php
-$tab = TabView('Pendidikan Peserta','','',''); echo"$tab";
-$asal_skl = @$_GET['asal_skl'];
-$nama = @$_GET['nama'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$tab = TabView('Pendidikan Sebelumnya','','',''); echo"$tab";
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE a.asal_sekolah = '$txtKataKunci' OR b.nama_lengkap LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batas 	= 5;
+	 $batas 	= 1;
 	 $posisi	= $page->cariPosisi($batas);
-	 if(isset($asal_skl) && $asal_skl != '') $args[] = "a.asal_sekolah = '$asal_skl'";
-	 if(isset($nama) && $nama != '') $args[] = "b.nama_lengkap like '%%$nama%%'";
 	 
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-			}
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-		}
-	 
-	 $res = mysql_query ("SELECT a.asal_sekolah AS asal_sekolah, 
-						  a.tanggal_sttb AS tanggal_sttb, 
-						  a.no_peserta AS lama_belajar, 
-						  b.nama_lengkap AS nama_lengkap, 
-						  a.tanggal_diterima AS tanggal_diterima, 
-						  a.pindahan_dari AS pindahan_dari
-						  FROM psb_pendidikan AS a 
-						  LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa 
-						  $arg ORDER BY a.id_keterangansiswa ASC LIMIT $posisi,$batas");
-						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT a.asal_sekolah AS asal_sekolah, 
-										  	a.tanggal_sttb AS tanggal_sttb, 
-										  	a.no_peserta AS lama_belajar, 
-										  	b.nama_lengkap AS nama_lengkap, 
-										  	a.tanggal_diterima AS tanggal_diterima, 
-										  	a.pindahan_dari AS pindahan_dari
-											FROM psb_pendidikan AS a 
-											LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg"));
+	$res = mysql_query ("SELECT * FROM psb_pendidikan AS a JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg ORDER BY b.nisn ASC LIMIT $posisi,$batas");
+						  // var_dump($res);
+	 $jmldata = mysql_num_rows($res);
 }
 else{
 	 $page		= new Paging;

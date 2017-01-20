@@ -1,14 +1,12 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">NISN</td>
+    <td align="right">NISN / Nama</td>
     <input type="hidden" name="module" value="biodata" />
-    <td align="left"><input name="nisn" type="text" id="nisn" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">Nama</td>
-    <td align="left"><input name="nama" type="text" id="nama" size="30" /></td>
-    <td><input name="submit" type="submit" value="Cari" clASs="button" /></td>
+    <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
     <td colspan="3" align="left">&nbsp;</td>
@@ -17,44 +15,25 @@
 </form>
 <?php
 $tab = TabView('Document Peserta','','',''); echo"$tab";
-$nisn = @$_GET['nisn'];
-$nama_lengkap = @$_GET['nama_lengkap'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE b.nisn = '$txtKataKunci' OR b.nama_lengkap LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batAS 	= 5;
-	 $posisi	= $page->cariPosisi($batAS);
-	 if(isset($nisn) && $nisn != '') $args[] = "a.nisn = '$nisn'";
-	 if(isset($nama_lengkap) && $nama_lengkap != '') $args[] = "a.nama_lengkap like '%%$nama_lengkap%%'";
+	 $batas 	= 6;
+	 $posisi	= $page->cariPosisi($batas);
 	 
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-			}
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-		}
-	 
-	 $res = mysql_query ("SELECT a.filename AS filename, 
-						  a.filesize AS filesize, 
-						  a.filetype AS filetype, 
-						  b.nama_lengkap AS nama_lengkap, 
-						  a.location AS location
-						  FROM psb_dokumen AS a 
-						  LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa 
-						  $arg ORDER BY a.id_dokumen ASC LIMIT $posisi,$batAS");
+	 $res = mysql_query ("SELECT * FROM psb_dokumen AS a JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg ORDER BY a.id_dokumen ASC LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT a.filename AS filename, 
-											a.filesize AS filesize, 
-											a.filetype AS filetype, 
-											b.nama_lengkap AS nama_lengkap, 
-											a.location AS location
-											FROM psb_dokumen AS a 
-											LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg"));
+	 $jmldata = mysql_num_rows($res);
+
 }
 else{
 	 $page		= new Paging;

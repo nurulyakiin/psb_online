@@ -5,7 +5,7 @@ $row=mysql_fetch_array($sql);
 ?>
 <P class='msg' align='center'></p>
 <form action="#" method="GET" enctype="multipart/form-data" name="info" id="info">
-	<table width="75%" border="0" align="center">
+	<table width="85%" border="0" align="center">
 	  <tr>
 		<td>
 		<input type="hidden" name="id" value="<?= $row['info_id']?>" />
@@ -15,7 +15,7 @@ $row=mysql_fetch_array($sql);
 		<td width="125">Informasi</td>
 	    <td colspan="2">:</td>
 	    <td width="576">
-		<textarea name="isi" id="isi" style="width: 400px; height: 100px;"><?=$row['info']?></textarea>
+		<textarea name="isi" id="isi" class="ckeditor" style="width: 600px; height: 400px;"><?=$row['info']?></textarea>
 		</td>
 	  </tr>
 	  <tr>

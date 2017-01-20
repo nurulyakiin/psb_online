@@ -1,14 +1,12 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">Nama Ayah</td>
+    <td align="right">Nama Ayah / Ibu / Calon Siswa</td>
     <input type="hidden" name="module" value="ortu" />
-    <td align="left"><input name="nmay" type="text" id="nmay" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">Nama Peserta</td>
-    <td align="left"><input name="nama" type="text" id="nama" size="30" /></td>
-    <td><input name="submit" type="submit" value="Cari" clASs="button" /></td>
+    <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
     <td colspan="3" align="left">&nbsp;</td>
@@ -17,48 +15,24 @@
 </form>
 <?php
 $tab = TabView('Orang Tua Peserta','','',''); echo"$tab";
-$nmay = @$_GET['nmay'];
-$nama = @$_GET['nama'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE a.nama_ayah = '$txtKataKunci' OR a.nama_ibu = '$txtKataKunci' OR b.nama_lengkap LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batAS 	= 5;
-	 $posisi	= $page->cariPosisi($batAS);
-	 if(isset($nmay) && $nmay != '') $args[] = "a.nama_ayah = '$nmay'";
-	 if(isset($nama) && $nama != '') $args[] = "a.nama_lengkap like '%%$nama%%'";
+	 $batas 	= 1;
+	 $posisi	= $page->cariPosisi($batas);
 	 
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-			}
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-		}
-	 
-	 $res = mysql_query ("SELECT a.nama_ayah AS nama_ayah, 
-						  a.nama_ibu AS nama_ibu, 
-						  a.alamat AS alamat, 
-						  a.nama_lengkap AS nama_lengkap, 
-						  a.no_telp AS no_telp, 
-						  a.pekerjaan_ayah AS pekerjaan_ayah, 
-						  a.penghASilan AS penghASilan
-						  FROM psb_dataorangtua AS a 
-						  left outer join psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa 
-						  $arg ORDER BY a.id_dataorangtua ASC LIMIT $posisi,$batAS");
+	 $res = mysql_query ("SELECT * FROM psb_dataorangtua AS a JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg ORDER BY a.id_dataorangtua ASC LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT a.nama_ayah AS nama_ayah, 
-											a.nama_ibu AS nama_ibu, 
-											a.alamat AS alamat, 
-											a.nama_lengkap AS nama_lengkap, 
-											a.no_telp AS no_telp, 
-											a.pekerjaan_ayah AS pekerjaan_ayah, 
-											a.penghASilan AS penghASilan	
-											FROM psb_dataorangtua AS a 
-											LEFT OUTER JOIN psb_keterangansiswa AS b on a.id_keterangansiswa=b.id_keterangansiswa $arg"));
+	 $jmldata = mysql_num_rows($res);
 }
 else{
 	 $page		= new Paging;

@@ -1,14 +1,12 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">Nama Wali</td>
+    <td align="right">Nama Wali / Calon Siswa</td>
     <input type="hidden" name="module" value="wali" />
-    <td align="left"><input name="nmwl" type="text" id="nmwl" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">Nama Peserta</td>
-    <td align="left"><input name="nama" type="text" id="nama" size="30" /></td>
-    <td><input name="submit" type="submit" value="Cari" clASs="button" /></td>
+    <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
     <td colspan="3" align="left">&nbsp;</td>
@@ -17,46 +15,24 @@
 </form>
 <?php
 $tab = TabView('Wali Peserta','','',''); echo"$tab";
-$nmwl = @$_GET['nmwl'];
-$nama = @$_GET['nama'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE a.nama_wali = '$txtKataKunci' OR b.nama_lengkap LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batAS 	= 5;
-	 $posisi	= $page->cariPosisi($batAS);
-	 if(isset($nmwl) && $nmwl != '') $args[] = "a.nisn = '$nmwl'";
-	 if(isset($nama) && $nama != '') $args[] = "b.nama_lengkap like '%%$nama%%'";
+	 $batas 	= 1;
+	 $posisi	= $page->cariPosisi($batas);
 	 
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-			}
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-		}
-	 
-	 $res = mysql_query ("SELECT a.nama_wali AS nama_wali, 
-						  a.alamat_wali AS alamat_wali, 
-						  a.no_telp AS no_telp, 
-						  b.nama_lengkap AS nama_lengkap, 
-						  a.ttl AS ttl, 
-						  a.pekerjaan AS pekerjaan
-						  FROM psb_wali AS a 
-						  LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa 
-						  $arg ORDER BY a.id_wali ASC LIMIT $posisi,$batAS");
+	 $res = mysql_query ("SELECT * FROM psb_wali AS a JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg ORDER BY a.id_wali ASC LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT a.nama_wali AS nama_wali, 
-											a.alamat_wali AS alamat_wali, 
-											a.no_telp AS no_telp, 
-											b.nama_lengkap AS nama_lengkap, 
-											a.ttl AS ttl, 
-											a.pekerjaan AS pekerjaan
-											FROM psb_wali AS a 
-											LEFT OUTER JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa $arg"));
+	 $jmldata = mysql_num_rows($res);
 }
 else{
 	 $page		= new Paging;
