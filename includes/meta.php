@@ -3,7 +3,7 @@
     <link rel="icon" href="img/favicon2.png" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap1.min.css" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
