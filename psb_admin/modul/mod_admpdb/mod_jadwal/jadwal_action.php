@@ -24,7 +24,7 @@ elseif ($act=='s_edit'){
 	include "js/back.js";
 }
 elseif ($act=='del'){
-	mysql_query("DELETE FROM ppdb_bind WHERE nisn='$id'");
+	mysql_query("DELETE FROM psb_keterangansiswa WHERE nisn='$id'");
 	include 'js/back.js';
 }
 ?>

@@ -56,7 +56,7 @@ else{
 		  <th class="tbl-header ">No Formulir</th>
 		  <th class="tbl-header ">NISN</th>
 		  <th class="tbl-header ">Nama</th>
-		  <th class="tbl-header ">Jadwal</th>
+		  <th class="tbl-header ">Verifikasi</th>
 		  <th class="tbl-header">Action</th>
 		</tr>
 	</thead>
@@ -92,7 +92,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-cell"><?=$nama_lengkap?></td>
 	<td class="tbl-cell"><?=$ver?></td>
 	<td class="tbl-controls">
-		<?$isi=Isi("?module=$_GET[module]&act=isi_jadwal&id=$id_keterangansiswa","Isi"); echo"$isi";?>
+		<?$edit=Edit("?module=$_GET[module]&act=isi_jadwal&id=$id_keterangansiswa","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$nisn","$nama_lengkap","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>

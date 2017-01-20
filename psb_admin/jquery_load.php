@@ -12,7 +12,7 @@ elseif ($_GET['module']=='biodata'){
 }
 elseif ($_GET['module']=='jadwal'){
 	include 'js/dtpicker.js';
-	include 'modul/mod_jadwal/jadwal_jquery.js';
+	include 'modul/mod_admpdb/mod_jadwal/jadwal_jquery.js';
 }
 elseif ($_GET['module']=='alamat'){
 	include 'js/dtpicker.js';

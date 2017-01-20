@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'jadwal.php';
     break;
-  case 'edit_bio':
+  case 'isi_jadwal':
 		include 'jadwal_form.php';
     break;  
   case 'v_edit':

@@ -26,7 +26,7 @@ elseif ($_GET['module']=='biodata'){
   include 'modul/mod_admpdb/mod_biodata/circuit.php';
 }
 elseif ($_GET['module']=='jadwal'){
-  include 'modul/mod_jadwal/circuit.php';
+  include 'modul/mod_admpdb/mod_jadwal/circuit.php';
 }
 elseif ($_GET['module']=='alamat'){
   include 'modul/mod_admpdb/mod_alamat/circuit.php';
