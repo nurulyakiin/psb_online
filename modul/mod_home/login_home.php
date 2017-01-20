@@ -23,8 +23,8 @@
         <div class="col-lg-12">
 		<div class="container">
 			<div class="col-lg-6 col-md-3 intro-marketing-box" align="center">
-				<p class="center"><a href="?module=pendaftar" class="btn btn-primary fa fa-5x fa-border fa-users"></a>
-				<h4 class="center">Lihat <span class="color_one">Pendaftar</span></h4>
+				<p class="center"><a href="?module=jadwal" class="btn btn-primary fa fa-5x fa-border fa-book"></a>
+				<h4 class="center">Lihat <span class="color_one">Jadwal</span></h4>
 				<p class="center">Daftar Peserta yang telah mendaftar</p></br>
 			</div>
 			<div class="col-lg-6 col-md-3 intro-marketing-box" align="center">

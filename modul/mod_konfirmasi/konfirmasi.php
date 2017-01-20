@@ -159,7 +159,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 </html>
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script src="js/jquery.metadata.js" type="text/javascript"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css"/>
 
 <script type="text/javascript">
 $.metadata.setType("attr", "validate");

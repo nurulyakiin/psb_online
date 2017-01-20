@@ -58,7 +58,7 @@ if($_POST['captcha']==$_SESSION['captcha_session']){
 													 ,0)");
 	$sql = mysql_query("select*from psb_formulir where nisn='$nisn'")or die(mysql_error());
 	$row = mysql_fetch_array($sql);
-	$message = "Selamat ! Pendaftaran Sukses. Silakan melakukan pembayaran formulir sebesar Rp. 100.000,- melalui ATM Bank BCA dengan no rekenig 321313124. No Formulir : ".$row['no_formulir']." No Peserta : ".$auto." Password : ".$row['pass_view'];
+	$message = "Selamat ! Pendaftaran Sukses. Silakan melakukan pembayaran formulir sebesar Rp. 100.000,- melalui ATM Bank BNI dengan no rekenig 301868760 a/n SMA MITRA BINTARO. No Formulir : ".$row['no_formulir']." No Peserta : ".$auto." Password : ".$row['pass_view'];
 	$subject = "Pendaftaran Formulir Berhasil";
 	$headers = "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
