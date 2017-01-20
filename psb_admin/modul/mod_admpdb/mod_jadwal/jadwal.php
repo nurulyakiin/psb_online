@@ -43,7 +43,6 @@ else{
 }
 
 ?>
-
 <form action='' method="GET" name="tabel" id='tabel'>
 	<span class="tbl-reset">
 	<? $button = addControl("?module=$_GET[module]","Refresh","images/32/refresh.png",true);echo"$button";?>
@@ -56,7 +55,7 @@ else{
 		  <th class="tbl-header ">No Formulir</th>
 		  <th class="tbl-header ">NISN</th>
 		  <th class="tbl-header ">Nama</th>
-		  <th class="tbl-header ">Verifikasi</th>
+		  <th class="tbl-header ">Jurusan</th>
 		  <th class="tbl-header">Action</th>
 		</tr>
 	</thead>
@@ -70,18 +69,18 @@ while($items=mysql_fetch_array($res)){
 	$no_formulir	=	$items['no_formulir'];
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);
 	$nisn		=	$items['nisn'];
-	$verif		=	$items['sts_verifikasi'];
+	$program_keahlian		=	$items['program_keahlian'];
 	$i++;
 
-	if  ($items['sts_verifikasi']==0){if  ($status == 0){$ver = "<font color=red>Belum</font>";}
-	else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Belum</a>";}}
-	else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Sudah</a>";}
+	// if  ($items['sts_verifikasi']==0){if  ($status == 0){$ver = "<font color=red>Belum</font>";}
+	// else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Belum</a>";}}
+	// else{$ver = "<a href='?module=biodata&act=v_edit&v=$verif&id=$adm_id'>Sudah</a>";}
 
-	if  ($items['sts_seleksi']==0){if  ($verif == 0){$sel = "<font color=red>Tidak Lulus</font>";}
-	else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Tidak Lulus</a>";}}
-	else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Lulus</a>";}
+	// if  ($items['sts_seleksi']==0){if  ($verif == 0){$sel = "<font color=red>Tidak Lulus</font>";}
+	// else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Tidak Lulus</a>";}}
+	// else{$sel = "<a href='?module=biodata&act=s_edit&s=$sel&id=$adm_id'>Lulus</a>";}
 	
-	if  ($status == 0){$sts = "<font color=red>Belum Lengkap</font>";}else{$sts = "Sudah Lengkap";}
+	// if  ($status == 0){$sts = "<font color=red>Belum Lengkap</font>";}else{$sts = "Sudah Lengkap";}
 ?>
 
 <tr class="tbl-row tbl-row-even">
@@ -90,7 +89,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-num"><?=$no_formulir?></td>
 	<td class="tbl-num"><?=$nisn?></td>
 	<td class="tbl-cell"><?=$nama_lengkap?></td>
-	<td class="tbl-cell"><?=$ver?></td>
+	<td class="tbl-cell"><?=$program_keahlian?></td>
 	<td class="tbl-controls">
 		<?$edit=Edit("?module=$_GET[module]&act=isi_jadwal&id=$id_keterangansiswa","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$nisn","$nama_lengkap","Hapus"); echo"$hapus";?>	

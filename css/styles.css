@@ -1,6 +1,8 @@
 @import url(menu.css);
 @import url(button.css);
 @import url(tabel.css);
+@import "iconfont.css";
+@import "animate.min.css";
 body {
 	margin: 0px;
 	padding: 0px;
@@ -19,7 +21,64 @@ a:hover { text-decoration: none; }
 
 p { margin: 0 0 10px 0; padding: 0; }
 img { border: none; }
+/*sosmed*/
+.fixsocial {
+	position: fixed;
+	top: 25%;
+	z-index: 9;
+	display: inline-flex;
+	left: 90px;
+}
+.fixsocial ul {
+  padding: 0px;
+  -webkit-transform: translate(-270px, 0);
+  -moz-transform: translate(-270px, 0);
+  -ms-transform: translate(-270px, 0);
+  -o-transform: translate(-270px, 0);
+  transform: translate(-270px, 0);
+  color:white;
+}
+.fixsocial ul li {
+  display: block;
+  background: rgba(0, 0, 0, 0.36);
+  width: 230px;
+  text-align: right;
+  padding: 10px;
+  -webkit-border-radius: 0 0px 0px 0;
+  -moz-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  color:white;
+}
+.fixsocial ul li:hover {
+  -webkit-transform: translate(30px, 0);
+  -moz-transform: translate(30px, 0);
+  -ms-transform: translate(30px, 0);
+  -o-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+.fixsocial ul li:hover a {
+  color: #FFFFFF;
+}
+.fixsocial ul li:hover i {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.fixsocial ul li i {
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 20px;
+  color:white;
 
+}
+/*sosmed*/
 h4 {
     text-transform:uppercase;
 	font-family: Geneva, Arial, Helvetica, sans-serif;

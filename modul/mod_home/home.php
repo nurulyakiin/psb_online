@@ -10,11 +10,18 @@
 </head>
 
 <body>
-
+<!-- <nav class="fixsocial hidden-xs">
+    <ul>
+        <li style="background:#3b5998;"><a href="https://www.facebook.com/cewekbanget.id/"><i class="fa fa-facebook"></i></a></li>
+        <li style="background:#00aced;"><a href=""><i class="fa fa-twitter"></i></a></li>
+        <li style="background:#255472;"><a href="https://www.instagram.com/cewekbanget.id/"><i class="fa fa-instagram"></i></a></li>
+        <li style="background:#bb0000;"><a href="https://www.youtube.com/user/kawankumagz"><i class="fa fa-youtube-play"></i></a></li>
+    </ul>
+</nav> -->
 <?php include_once( 'includes/nav.php'); ?>
 
     <!-- Masthead -->
-    <div class="masthead">
+    <!-- <div class="masthead">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -32,7 +39,49 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/bg_body.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>SMA Mitra Bintaro</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/bg_body.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/bg_body.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
 
     <!-- Intro home page content -->
     <div class="intro-marketing">
