@@ -15,7 +15,7 @@ include '../../config/koneksi.php';
 // var_dump($_POST);
 // exit;
 if ($_POST){
-	$sql = mysql_query("SELECT B.id_keterangansiswa AS id FROM psb_formulir AS A JOIN psb_keterangansiswa AS B ON A.id_formulir=B.id_formulir")or die(mysql_error());
+	$sql = mysql_query("SELECT B.id_keterangansiswa AS id FROM psb_formulir AS A JOIN psb_keterangansiswa AS B ON A.id_formulir=B.id_formulir WHERE A.no_peserta = '$_SESSION[no_peserta]'")or die(mysql_error());
 	$row = mysql_fetch_array($sql);
 	// var_dump($_POST);
     $path = pathinfo($_SERVER['PHP_SELF']);

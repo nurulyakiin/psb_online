@@ -46,7 +46,7 @@ $(document).ready(function() {
 					error.appendTo(element.parent("td"));
 					},
 		submitHandler: function(form) {
-			var dataForm = $("#pendidikan").serialize();
+			var dataForm = $("#ortu").serialize();
 			var id_keterangansiswa = $("input[name=id_keterangansiswa]").val();
 			var nmayh = $("input[name=nmayh]").val();
 			var nmibu = $("input[name=nmibu]").val();

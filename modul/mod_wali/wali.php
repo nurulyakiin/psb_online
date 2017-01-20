@@ -10,12 +10,10 @@
 
 <body>
 <?php include_once( 'includes/nav.php'); ?>
-<?
+<?php
 
-$sql = mysql_query("SELECT B.id_keterangansiswa AS id FROM psb_formulir AS A JOIN psb_keterangansiswa AS B ON A.id_formulir=B.id_formulir")or die(mysql_error());
+$sql = mysql_query("SELECT * FROM psb_formulir AS A JOIN psb_keterangansiswa AS B ON A.id_formulir=B.id_formulir WHERE A.no_peserta = '$_SESSION[no_peserta]' ")or die(mysql_error());
 $row = mysql_fetch_array($sql);
-// var_dump($row);
-// exit;
 ?>
 <div id="info" align="center"></div>
 <form action="#" method="post" id="wali">
@@ -23,7 +21,7 @@ $row = mysql_fetch_array($sql);
 	  <tr>
 		<td colspan="9" bgcolor="#33CC33"><b>D. KETERANGAN WALI</b></td>
 	  </tr>
-	  <input name="id_keterangansiswa" type="hidden" id="id_keterangansiswa" value="<?= $row['id']?>"/>
+	  <input name="id_keterangansiswa" type="hidden" id="id_keterangansiswa" value="<?= $row['id_keterangansiswa']?>"/>
 	  <tr>
 		<td colspan="6">&nbsp;</td>
 	  </tr>
