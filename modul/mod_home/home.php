@@ -132,8 +132,8 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <a class="thumbnail" href="img/pendaftaran.png" target="_blank">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2825646322494!2d106.66758581463014!3d-6.226426495492822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fbd6a36368ab%3A0xa758199b634782ca!2sSekolah+Menengah+Atas+Mitra+Bintaro!5e0!3m2!1sid!2sid!4v1484802956261" width="530" class="img-responsive" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <a class="thumbnail img-responsive" target="_blank">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2825646322494!2d106.66758581463014!3d-6.226426495492822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fbd6a36368ab%3A0xa758199b634782ca!2sSekolah+Menengah+Atas+Mitra+Bintaro!5e0!3m2!1sid!2sid!4v1484802956261" width="530" height="338" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </a>
                     </div>
                     <div class="col-lg-12 col-md-12">
