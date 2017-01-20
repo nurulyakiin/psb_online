@@ -32,6 +32,7 @@ if (isset($sess_id) and (isset($sess_name)))
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/superfish.js" type="text/javascript"></script>
 <script src="js/tabs.js" type="text/javascript"></script>
+<script type="text/javascript" src="config/ckeditor/ckeditor.js"></script>
 
 <?php  include 'jquery_load.php';?>
 </head>
@@ -70,6 +71,7 @@ if (isset($sess_id) and (isset($sess_name)))
 				<!-- <li><a href="?module=c_nilai">Cetak Nilai Peserta</a></li> -->
 			</ul>
 	  </li>
+	  <li><a href="?module=jadwal">Jadwal Sementara</a></li>
 		<li><a href="?module=kontak">Kontak</a></li>
 		<?if($_SESSION['name']==0){
 		echo"<li><a href='#'>Setting</a>

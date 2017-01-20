@@ -1,13 +1,11 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">NISN</td>
+    <td align="right">NISN / NAMA</td>
     <input type="hidden" name="module" value="biodata" />
-    <td align="left"><input name="nisn" type="text" id="nisn" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">Nama</td>
-    <td align="left"><input name="nama" type="text" id="nama" size="30" /></td>
     <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
@@ -17,57 +15,31 @@
 </form>
 <?php
 $tab = TabView('Biodata Peserta','','',''); echo"$tab";
-$nisn = @$_GET['nisn'];
-$nama = @$_GET['nama'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE b.nisn = '$txtKataKunci' OR b.nama_lengkap LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batas 	= 5;
+	 $batas 	= 1;
 	 $posisi	= $page->cariPosisi($batas);
-	 if(isset($nisn) && $nisn != '') $args[] = "a.nisn = '$nisn'";
-	 if(isset($nama) && $nama != '') $args[] = "a.nama_lengkap like '%%$nama%%'";
 	 
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-			}
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-		}
-	 
-	 $res = mysql_query ("select a.adm_id as adm_id, 
-						  a.nisn as nisn, 
-						  a.no_peserta as no_peserta, 
-						  a.nama_lengkap as nama_lengkap, 
-						  a.asal_skl as asal_skl, 
-						  a.sts_verifikasi as sts_verifikasi, 
-						  a.sts_seleksi as sts_seleksi,
-						  b.sts_bio as sts_bio
-						  from psb_formulir as a 
-						  left outer join psb_keterangansiswa as b on a.id_formulir=b.id_formulir 
-						  $arg ORDER BY a.nisn ASC LIMIT $posisi,$batas");
+	 $res = mysql_query ("SELECT * FROM psb_formulir AS a JOIN psb_keterangansiswa AS b ON a.id_formulir=b.id_formulir $arg ORDER BY a.nisn ASC LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("select a.adm_id as adm_id,
-											a.nisn as nisn, 
-											a.no_peserta as no_peserta, 
-											a.nama_lengkap as nama_lengkap, 
-											a.asal_skl as asal_skl, 
-											a.sts_verifikasi as sts_verifikasi, 
-											a.sts_seleksi as sts_seleksi,
-											b.sts_bio as sts_bio
-											from psb_formulir as a 
-											left outer join psb_keterangansiswa as b on a.id_formulir=b.id_formulir $arg"));
+	 $jmldata = mysql_num_rows($res);
 }
 else{
 	 $page		= new Paging;
 	 $batas 	= 5;
 	 $posisi	= $page->cariPosisi($batas);
-	 $res = mysql_query ("SELECT*FROM psb_formulir as a, psb_keterangansiswa as b where a.id_formulir=b.id_formulir ORDER BY a.id_formulir ASC LIMIT $posisi,$batas");
-	 $jmldata = mysql_num_rows(mysql_query("SELECT*FROM psb_formulir as a, 	psb_keterangansiswa as b where a.id_formulir=b.id_formulir "));
+	 $res = mysql_query ("SELECT * FROM psb_formulir as a, psb_keterangansiswa as b where a.id_formulir=b.id_formulir ORDER BY a.id_formulir ASC LIMIT $posisi,$batas");
+	 $jmldata = mysql_num_rows(mysql_query("SELECT * FROM psb_formulir as a, psb_keterangansiswa as b where a.id_formulir=b.id_formulir "));
 }
 
 ?>
@@ -93,7 +65,6 @@ else{
 $i = $posisi;
 while($items=mysql_fetch_array($res)){
 
-	$adm_id		=	$items['adm_id'];
 	$no_peserta	=	$items['no_peserta'];
 	$no_formulir	=	$items['no_formulir'];
 	$nama_lengkap		=	BesarKalimat($items['nama_lengkap']);

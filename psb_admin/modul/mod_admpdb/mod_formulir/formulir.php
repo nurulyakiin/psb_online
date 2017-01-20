@@ -1,13 +1,11 @@
-<form method='GET' action=''>
+<form method='post' action='<?php $_SERVER['PHP_SELF']; ?>' name="form1" target="_self">
 <table border="0" align="center">
   <tr>
-    <td align="right">No Peserta</td>
+    <td align="right">No Peserta / No Formulir</td>
     <input type="hidden" name="module" value="formulir" />
-    <td align="left"><input name="nopes" type="text" id="nopes" size="30" /></td>
+    <td align="left"><input name="txtKataKunci" value="<?php echo $dataKataKunci; ?>" type="text" id="txtKataKunci" size="30" /></td>
   </tr>
   <tr>
-    <td align="right">No Formulir</td>
-    <td align="left"><input name="noform" type="text" id="noform" size="30" /></td>
     <td><input name="submit" type="submit" value="Cari" class="button" /></td>
   </tr>
   <tr>
@@ -17,34 +15,24 @@
 </form>
 <?php
 $tab = TabView('Data Formulir','','',''); echo"$tab";
-$nopes = @$_GET['nopes'];
-$noform = @$_GET['noform'];
-$arg  = @$_GET['arg'];
-if (isset($submit) == 'Cari'){
+$arg = "";
+
+if (isset($_POST['submit'])){
+	$txtKataKunci = trim($_POST['txtKataKunci']);
+
+	$arg = "WHERE no_peserta = '$txtKataKunci' OR no_formulir LIKE '%$txtKataKunci%' ";
+	// var_dump($arg);
+
+	$dataKataKunci = isset($_POST['txtKataKunci']) ? $_POST['txtKataKunci'] : '';
+	// var_dump($dataKataKunci);
+
 	 $page		= new Paging9;
-	 $batas 	= 5;
+	 $batas 	= 1;
 	 $posisi	= $page->cariPosisi($batas);
-	 if(isset($nopes) && $nopes != '') $args[] = "no_peserta = '$nopes'";
-	 if(isset($noform) && $noform != '') $args[] = "no_formulir like '%%$noform%%'";
-	 var_dump('4');
-		if(count($args)>1){
-			$arg = " where ".$args[0];
-			$i = 1;
-			while ($i < count($args)){
-				$arg .= " and ".$args[$i];
-				$i++;
-				var_dump('1');
-			}
-			var_dump('2');
-		}
-		elseif (count($args)==1){
-			$arg = " where ".$args[0];
-			var_dump('3');
-		}
-	 
-	 $res = mysql_query ("SELECT * FROM psb_formulir $arg ORDER BY no_formulir AS LIMIT $posisi,$batas");
+	 	 
+	 $res = mysql_query ("SELECT * FROM psb_formulir $arg ORDER BY no_formulir ASC LIMIT $posisi,$batas");
 						  
-	 $jmldata = mysql_num_rows(mysql_query("SELECT * FROM psb_formulir$arg"));
+	 $jmldata = mysql_num_rows($res);
 }
 else{
 	 $page		= new Paging;
