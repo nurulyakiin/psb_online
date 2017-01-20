@@ -41,4 +41,3 @@ $row=mysql_fetch_array($sql);
 	  </tr>
 	</table>
 </form>
-</div>
