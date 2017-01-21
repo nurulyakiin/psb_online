@@ -72,6 +72,9 @@ elseif($_GET['module']=='dokumen'){
 elseif($_GET['module']=='pesan'){
   include 'modul/mod_bantuan/pesan/bantuan.php';
 }
+elseif($_GET['module']=='jadwal'){
+  include 'modul/mod_jadwal/jadwal.php';
+}
 else
 {
   echo "<meta http-equiv='refresh' content='0 url=?module=home' />";
