@@ -15,6 +15,16 @@
 <div class="container">
       <div class="row">
         <div class="col-lg-12">
+        <div class="container">
+        &nbsp;
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?include "msg.php";?>
+                </div>
+        	</div>
+    	</div>
           <h1 class="page-header">Akun Peserta</h1>
           <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>

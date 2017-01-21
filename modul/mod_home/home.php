@@ -32,10 +32,7 @@
                     <h3>Sistem Informasi Penerimaan Peserta Didik Baru Online</h3>
                     <p>Dukungan penuh memudahkan bagi Calon Peserta Didik Baru untuk mendaftarkan diri, mengisi formulir dan mengikuti tes seleksi.</a>
                     </p>
-                    <div class="alert alert-info alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <?include "msg.php";?>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -98,7 +95,8 @@
         </a>
 
     </header>
-
+    &nbsp;
+    
     <!-- Intro home page content -->
     <div class="intro-marketing">
         <div class="container">
