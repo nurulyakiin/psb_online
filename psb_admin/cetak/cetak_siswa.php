@@ -1,4 +1,5 @@
 <?php
+$id   = @$_GET['id'];
 session_start();
 include "../../config/koneksi.php";
 include "../config/functions_all.php";
@@ -8,7 +9,8 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
   JOIN psb_pendidikan AS c ON b.id_keterangansiswa=c.id_keterangansiswa
   JOIN psb_tempattinggal AS d ON c.id_keterangansiswa=d.id_keterangansiswa
   JOIN psb_wali AS e ON d.id_keterangansiswa=e.id_keterangansiswa
-  JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa")or die(mysql_error());
+  JOIN psb_dataorangtua AS f ON e.id_keterangansiswa=f.id_keterangansiswa
+  WHERE a.program_keahlian LIKE '%$id%'")or die(mysql_error());
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +23,9 @@ $sql = mysql_query("SELECT * FROM psb_formulir AS a
 <table width="200%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0">
 <tr>
   <td width="200%" colspan="9"><img src="../../images/kop_surat.jpg" width="200%" height="146"/></td>
+</tr>
+<tr>
+  <td width="200%" colspan="9" align="center">LAPORAN SISWA </td>
 </tr>
   <tr>
     <td width="3%" align="center">No</td>

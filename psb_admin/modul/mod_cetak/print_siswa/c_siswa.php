@@ -14,7 +14,7 @@
 </table>
 </form>
 <?
-$tab = TabView('Cetak Biodata','','',''); echo"$tab";
+$tab = TabView('Cetak Laporan','','',''); echo"$tab";
 $arg = "";
 
 if (isset($_POST['submit'])){
@@ -48,7 +48,7 @@ else{
 	<span class="tbl-reset">
 	<? $button = addControl("?module=$_GET[module]","Refresh","images/32/refresh.png",true);echo"$button";?>
 	</span>
-	<table id="theTable" align="center"  class="tbl"  >
+	<table id="theTable" align="center" class="tbl"  >
 	<thead>
 		<tr>
 		  <th class="tbl-header">No</th>
@@ -59,7 +59,6 @@ else{
 		  <th class="tbl-header">Kewarganegaraan</th>
 		  <th class="tbl-header">Tempat, Tanggal Lahir</th>
 		  <th class="tbl-header">No Handphone</th>
-		  <th class="tbl-header">Action</th>
 		</tr>
 	</thead>
 <tbody>
@@ -74,6 +73,7 @@ while($items=mysql_fetch_array($res)){
 	$agama		=	BesarKalimat($items[agama]);
 	$tempat_tgllahir		= 	$items[tempat_tgllahir];
 	$no_telp	= 	$items[no_telp];
+	$program_keahlian	= 	$items[program_keahlian];
 	$i++;
 
 ?>
@@ -87,9 +87,9 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-num"><?=$kewarganegaraan?></td>
 	<td class="tbl-cell"><?=$tempat_tgllahir?></td>
 	<td class="tbl-cell"><?=$no_telp?></td>
-	<td class="tbl-controls">
+	<!-- <td class="tbl-controls">
 		<?$cetak=Cetak("./cetak/f_biodata.php?id=$nisn","Cetak"); echo"$cetak";?>
-	</td>
+	</td> -->
 </tr>
 <?
 $jmlhalaman = $page->jumlahHalaman($jmldata,$batas);
@@ -106,6 +106,11 @@ $linkhalaman = $page->navHalaman($_GET[halaman],$jmlhalaman);
 				<td width="33%" class="tbl-pages">
 				<?=$linkhalaman?>
 				</td>
+			</tr>
+			<tr>
+			<td align="right" style="text-align: right;" class="tbl-controls">
+				<?$cetak=Cetak("./cetak/f_siswa.php?id=$program_keahlian","Cetak"); echo"$cetak";?>
+			</td>
 			</tr>
 			</tbody>
 		</table>

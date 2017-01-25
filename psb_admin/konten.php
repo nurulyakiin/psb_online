@@ -52,6 +52,9 @@ elseif ($_GET['module']=='nilai'){
 elseif ($_GET['module']=='c_bidata'){
   include 'modul/mod_cetak/print_biodata/circuit.php';
 }
+elseif ($_GET['module']=='c_siswa'){
+  include 'modul/mod_cetak/print_siswa/circuit.php';
+}
 else
 {
   echo "<meta http-equiv='refresh' content='0 url=?module=home' />";

@@ -1,4 +1,5 @@
 <?php
+$id		= @$_GET['id'];
 ob_start();
  include "cetak_siswa.php";
  $content = ob_get_clean();

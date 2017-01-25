@@ -67,7 +67,8 @@ if (isset($sess_id) and (isset($sess_name)))
 		<li><a href="#">Cetak</a>
 			<ul>
 				<li><a href="?module=c_bidata">Cetak Biodata Peserta</a></li>
-				<li><a href="cetak/f_siswa.php" target="_blank">Cetak Laporan Siswa</a></li>
+				<li><a href="?module=c_siswa">Cetak Laporan Siswa</a></li>
+				<!-- <li><a href="cetak/f_siswa.php" target="_blank">Cetak Laporan Siswa</a></li> -->
 				<!-- <li><a href="?module=c_nilai">Cetak Nilai Peserta</a></li> -->
 			</ul>
 	  </li>

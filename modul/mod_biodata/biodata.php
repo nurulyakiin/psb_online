@@ -11,7 +11,7 @@
 <body>
 <?php include_once( 'includes/nav.php'); ?>
 <?
-
+include 'js/dtpicker.js';
 $sql = mysql_query("SELECT * FROM psb_formulir WHERE nisn = '$_SESSION[nisn]'")or die(mysql_error());
 $row = mysql_fetch_array($sql);
 
