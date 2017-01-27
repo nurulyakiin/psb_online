@@ -16,6 +16,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 // $row = mysql_fetch_array($sql);
 ?>
 <!-- Page content -->
+&nbsp;
 <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -165,36 +166,36 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 $.metadata.setType("attr", "validate");
 $(document).ready(function() {
   $("#nopes").change(function(){ 
-  // $('#pesan').html("<img src='images/loader.gif' /> checking ...");
+  $('#pesan').html("<img src='images/loader.gif' /> checking ...");
     var nopes = $("#nopes").val(); 
-  // $.ajax({
-  //  type:"POST",
-  //  url:"modul/mod_daftar/daftar_checking.php",
-  //  data: "nisn=" + nisn,
-  //  success: function(data){
-  //    if(data==0){
-  //      if(nisn.length == 0 || nisn.length < 10 || nisn.length > 10){
-  //        $('#pesan').html("");
-  //        $('#nisn').css('border', '1px #C33 solid');
-  //      }
-  //      else{
-  //        $("#pesan").html('<img src="images/tick.png"> NISN belum digunakan');
-  //        $('#nisn').css('border', '1px #090 solid'); 
-  //        $("#submit").fadeIn();
-  //      }
-  //    }  
-  //    else{
-  //      $("#pesan").html('<img src="images/cross.png"> NISN sudah dipakai');       
-  //      $('#nisn').css('border', '1px #C33 solid'); 
-  //      $("#submit").fadeOut();
-  //    }
-  //  }
-  // });
+  $.ajax({
+   type:"POST",
+   url:"modul/mod_konfirmasi/konfirmasi_checking.php",
+   data: "nopes=" + nopes,
+   success: function(data){
+     if(data==0){
+       if(nopes.length == 0 || nopes.length < 9 || nopes.length > 9){
+         $('#pesan').html("");
+         $('#nopes').css('border', '1px #C33 solid');
+       }
+       else{
+         $("#pesan").html('<img src="images/cross.png"> No Peserta Tidak Ada');
+         $('#nopes').css('border', '1px #C33 solid'); 
+         $("#submit").fadeIn();
+       }
+     }  
+     else{
+       $("#pesan").html('<img src="images/tick.png"> No Peserta Ada');       
+       $('#nopes').css('border', '1px #090 solid'); 
+         $("#submit").fadeIn();
+     }
+   }
+  });
   })
   $("#konfirmasi").validate({
     rules: {  
         noform: {required: true},   
-        nopes: {required: true},
+        nopes: {required: true,number: true, minlength: 9, maxlength:9},
         jns: {required: true},
         email: {required: true},
         nabank: {required: true},
@@ -206,7 +207,7 @@ $(document).ready(function() {
         },
     messages: {
         noform: {required: "No Formulir harus diisi"},
-        nopes: {required: "No Peserta harus diisi"},
+        nopes: {required: "No Peserta harus diisi",number: "No Peserta harus Angka",minlength: "Minimal 9 Digit",maxlength: "Maksimal 9 Digit"},
         jns: {required: "Jenis Pembayaran harus diisi"},
         email: {required: "Email harus diisi"},
         nabank: {required: "Nama Bank harus diisi"},

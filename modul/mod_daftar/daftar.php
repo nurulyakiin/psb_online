@@ -135,31 +135,31 @@ include_once( 'includes/meta.php'); ?>
 $.metadata.setType("attr", "validate");
 $(document).ready(function() {
   $("#nisn").change(function(){ 
-  // $('#pesan').html("<img src='images/loader.gif' /> checking ...");
+  $('#pesan').html("<img src='images/loader.gif' /> checking ...");
     var nisn = $("#nisn").val(); 
-  // $.ajax({
-  //  type:"POST",
-  //  url:"modul/mod_daftar/daftar_checking.php",
-  //  data: "nisn=" + nisn,
-  //  success: function(data){
-  //    if(data==0){
-  //      if(nisn.length == 0 || nisn.length < 10 || nisn.length > 10){
-  //        $('#pesan').html("");
-  //        $('#nisn').css('border', '1px #C33 solid');
-  //      }
-  //      else{
-  //        $("#pesan").html('<img src="images/tick.png"> NISN belum digunakan');
-  //        $('#nisn').css('border', '1px #090 solid'); 
-  //        $("#submit").fadeIn();
-  //      }
-  //    }  
-  //    else{
-  //      $("#pesan").html('<img src="images/cross.png"> NISN sudah dipakai');       
-  //      $('#nisn').css('border', '1px #C33 solid'); 
-  //      $("#submit").fadeOut();
-  //    }
-  //  }
-  // });
+  $.ajax({
+   type:"POST",
+   url:"modul/mod_daftar/daftar_checking.php",
+   data: "nisn=" + nisn,
+   success: function(data){
+     if(data==0){
+       if(nisn.length == 0 || nisn.length < 10 || nisn.length > 10){
+         $('#pesan').html("");
+         $('#nisn').css('border', '1px #C33 solid');
+       }
+       else{
+         $("#pesan").html('<img src="images/tick.png"> NISN belum digunakan');
+         $('#nisn').css('border', '1px #090 solid'); 
+         $("#submit").fadeIn();
+       }
+     }  
+     else{
+       $("#pesan").html('<img src="images/cross.png"> NISN sudah dipakai');       
+       $('#nisn').css('border', '1px #C33 solid'); 
+       $("#submit").fadeOut();
+     }
+   }
+  });
   })
   $("#daftar").validate({
     rules: {  
@@ -201,9 +201,9 @@ $(document).ready(function() {
               window.location.href = '?module=register&id='+nisn;
             }
             else{
-              window.location.href = '?module=register&id='+nisn;
-              // $("#info").html(data);
-              // $("#info").fadeOut(5000);
+              // window.location.href = '?module=register&id='+nisn;
+              $("#info").html(data);
+              $("#info").fadeOut(5000);
             }
           }
         });
