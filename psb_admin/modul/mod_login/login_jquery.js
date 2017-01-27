@@ -1,12 +1,11 @@
 <script src="js/jquery-1.4.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script src="js/jquery.metadata.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 <script type="text/javascript">
 $.metadata.setType("attr", "validate");
 $(document).ready(function() {
-	$(".info").hide('fast');
+	$(".info").hide('slow');
 	$("#loginform").validate({
 		rules: {
 				username: {required: true},		
@@ -20,7 +19,7 @@ $(document).ready(function() {
 				error.appendTo(element.parent("td"));
 				},
 		submitHandler: function(form) {
-				$(".info").hide('fast');
+				$(".info").hide('slow');
 				var dataForm = $("#loginform").serialize();
 				var username = $("input[name=username]").val();
 				var password = $("input[name=password]").val();
