@@ -99,15 +99,15 @@
     <div class="intro-marketing">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 intro-marketing-box">
+<!--                 <div class="col-lg-4 col-md-4 intro-marketing-box">
                     <h2><i class="fa fa-users"></i> Lihat Pendaftar</h2>
                     <p>Daftar Peserta yang telah mendaftar untuk mengikuti seleksi Peserta Didik Baru.<a href="#"> Lihat Pendaftar</a></p>
-                </div>
-		        <div class="col-lg-4 col-md-4 intro-marketing-box">
+                </div> -->
+		        <div class="col-lg-6 col-md-6 intro-marketing-box">
                     <h2><i class="fa fa-envelope"></i> Bantuan Pendaftaran</h2>
                     <p>Tanya jawab Online seputar pendaftaran dengan panitia Penerimaan Peserta Didik Baru.<a href="?module=pesan"> Kirim Pesan</a></p>
                 </div>
-                <div class="col-lg-4 col-md-4 intro-marketing-box">
+                <div class="col-lg-6 col-md-6 intro-marketing-box">
                     <h2><i class="fa fa-user"></i> Sudah Punya Akun</h2>
                     <p>Setelah melakukan pendaftaran dan memiliki akun, kamu dapat mengatur data pribadi.<a href="media.php?module=login"> Login</a></p>
                 </div>
