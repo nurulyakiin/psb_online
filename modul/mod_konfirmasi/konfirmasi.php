@@ -135,7 +135,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
      			   <td><input type="text" class="form-control" name="captcha" id="captcha" style="width: 165px"/></td>
    		</tr>
   		<tr>
-			<td><button type="submit" id="submit" class="btn btn-primary"><i class="small fa fa-pencil"></i> Daftar</button></td>
+			<td><button type="submit" id="submit" class="btn btn-primary"><i class="small fa fa-pencil"></i> Konfirmasi</button></td>
 			<td>&nbsp;</td>
     			<td>&nbsp;</td>	
 		</tr>

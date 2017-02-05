@@ -9,7 +9,7 @@ ob_start();
  {
  $html2pdf = new HTML2PDF('P','A4', 'en', false, 'ISO-8859-15');
  $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
- $html2pdf->Output('"surat_pernyataan.pdf');
+ $html2pdf->Output('"detail_pembayaran.pdf');
  }
  catch(HTML2PDF_exception $e) { echo $e; }
 ?>
