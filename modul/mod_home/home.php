@@ -126,7 +126,8 @@
             <h4 class="modal-title">Prosedur Pendaftaran</h4>
           </div>
           <div class="modal-body">
-            <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div>
+            <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
+            <img align="center" src="http://psb-smamitrabintaro.web.id/images/prosedur.jpg">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
