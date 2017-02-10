@@ -62,7 +62,7 @@ include_once( 'includes/meta.php'); ?>
             <td>:</td>
             <td><select name="prog" class="form-control" style="width: 300px">
                 <option value="IPA">IPA</option>
-                <option value="IPS">IPS</option>
+                <option disabled="disabled" value="IPS">IPS</option>
               </select></td>
         </tr>
         <tr>
