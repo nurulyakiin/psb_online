@@ -51,35 +51,35 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide1.jpeg');"></div>
+                <div class="fills" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide1.jpeg');"></div>
                 <div class="carousel-caption">
                     <h2>SMA Mitra Bintaro</h2>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide2.jpeg');"></div>
+                <div class="fills" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide2.jpeg');"></div>
                 <div class="carousel-caption">
                     <h2>SMA Mitra Bintaro</h2>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide3.jpeg');"></div>
+                <div class="fills" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide3.jpeg');"></div>
                 <div class="carousel-caption">
                     <h2>SMA Mitra Bintaro</h2>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide4.jpeg');"></div>
+                <div class="fills" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide4.jpeg');"></div>
                 <div class="carousel-caption">
                     <h2>SMA Mitra Bintaro</h2>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide5.jpeg');"></div>
+                <div class="fills" style="background-image:url('http://psb-smamitrabintaro.web.id/images/slide/slide5.jpeg');"></div>
                 <div class="carousel-caption">
                     <h2>SMA Mitra Bintaro</h2>
                 </div>
