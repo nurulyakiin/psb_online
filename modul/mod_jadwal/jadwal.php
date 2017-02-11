@@ -55,7 +55,7 @@
 	 $page		= new Paging;
 	 $batas 	= 10;
 	 $posisi	= $page->cariPosisi($batas);
-	 $res = mysql_query ("SELECT * FROM psb_jadwalsementara ORDER BY id_jadwal ASC LIMIT $posisi,$batas");
+	 $res = mysql_query ("SELECT * FROM psb_jadwalsementara AS a JOIN psb_keterangansiswa AS b ON a.id_keterangansiswa=b.id_keterangansiswa JOIN psb_formulir AS c ON b.id_formulir=c.id_formulir WHERE c.no_peserta='$_SESSION[no_peserta]' ORDER BY id_jadwal ASC LIMIT $posisi,$batas");
 	 $no = $posisi+1;
 	 while($items=mysql_fetch_array($res)){
 		// if  ($items['sts_verifikasi']==0){
