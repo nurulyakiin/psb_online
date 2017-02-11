@@ -57,14 +57,14 @@ $row = mysql_fetch_array($sql);
 	  <tr>
 		<td><br></td>
 		</tr>
-		<tr>
+		<!-- <tr>
 		<td>Pindahan dari Sekolah</td>
 		<td>:</td>
 		<td colspan="4"><input class="form-control" style="width: 200px" name="pindah" type="text" id="pindah" value="" size="15" /></td>
 	  </tr>
 	  <tr>
 		<td><br></td>
-		</tr>
+		</tr> -->
 	  <tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -98,17 +98,17 @@ $(document).ready(function() {
 					id_keterangansiswa: {required: true},
 					asal: {required: true},
 					sttb: {required: true},
-					lama: {required: true},
+					lama: {required: true,number: true},
 					tgl: {required: true},
-					pindah: {required: true}
+					// pindah: {required: true}
 					},
 		messages:	{
 					id_keterangansiswa: {required: "Nama Siswa Harus Diisi"},
 					asal: {required: "Asal Sekolah Harus Diisi"},
 					sttb: {required: "STTB Harus Diisi"},
-					lama: {required: "Lamanya Harus Diisi"},
+					lama: {required: "Lamanya Harus Diisi",number: "Lamanya Harus Angka"},
 					tgl: {required: "Tanggal Harus Diisi"},
-					pindah: {required: "Pindah Tanggal Harus Diisi"}
+					// pindah: {required: "Pindah Tanggal Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
 					error.appendTo(element.parent("td"));
@@ -120,7 +120,7 @@ $(document).ready(function() {
 			var sttb = $("input[name=sttb]").val();
 			var lama = $("input[name=lama]").val();
 			var tgl = $("input[name=tgl]").val();
-			var pindah = $("input[name=pindah]").val();
+			// var pindah = $("input[name=pindah]").val();
 
 			$.ajax({
 				type:"POST",

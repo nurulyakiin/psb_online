@@ -107,7 +107,7 @@ $(document).ready(function() {
 		messages:	{
 					id_keterangansiswa: {required: "Nama Siswa Harus Diisi"},
 					jarak: {required: "Jarak ke Sekolah Harus di Isi",number: "Jarak Harus Angka",maxlength: "Maksimal 10 Digit"},
-					tempat: {required: "Alamat Siswa Harus Diisi"},
+					tempat: {required: "Tinggal dengan harus diisi"},
 					kendar: {required: "Kendaraan Harus Diisi"},
 					ref: {required: "Referensi Harus Diisi"}
 					},

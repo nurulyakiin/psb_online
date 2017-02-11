@@ -13,47 +13,90 @@ $norek		= $_POST['norek'];
 $tobay		= $_POST['tobay'];
 $tgl		= $_POST['tgl'];
 
+$eror		= false;
+$folder		= './images/';
+//type file yang bisa diupload
+$file_type	= array('jpg','jpeg','png','gif','bmp','doc','docx','xls','xlsx','sql');
+//tukuran maximum file yang dapat diupload
+$max_size	= 5000000; // 500kb
+
 // $to=$email;
 
 if($_POST['captcha']==$_SESSION['captcha_session']){
-	$input = mysql_query("INSERT INTO psb_konfirmasi(no_perserta, 
+	//Mulai memorises data
+	$file_name	= $_FILES['data_upload']['name'];
+	$file_size	= $_FILES['data_upload']['size'];
+	//cari extensi file dengan menggunakan fungsi explode
+	$explode	= explode('.',$file_name);
+	$extensi	= $explode[count($explode)-1];
+
+	//check apakah type file sudah sesuai
+	if(!in_array($extensi,$file_type)){
+		$eror   = true;
+		$pesan .= '- Type file yang anda upload tidak sesuai<br />';
+	}
+	if($file_size > $max_size){
+		$eror   = true;
+		$pesan .= '- Ukuran file melebihi batas maximum<br />';
+	}
+	//check ukuran file apakah sudah sesuai
+
+	if($eror == true){
+		echo '<div id="eror">'.$pesan.'</div>';
+	}
+	else{
+		//mulai memproses upload file
+		if(move_uploaded_file($_FILES['data_upload']['tmp_name'], $folder.$file_name)){
+			//catat nama file ke database
+			$catat = mysql_query('INSERT INTO psb_konfirmasi(no_perserta, 
 													 no_formulir,
 													 nama_pembayaran,
 													 nama_bank,
 													 total_pembayaran,
 													 jenis_pembayarn,
 													 no_rek,
-													 tgl_pembayaran) 
-											 VALUES ('$nopes',
-											 		 '$noform',
-													 '$narim',
-													 '$nabank',
-													 '$tobay',
-													 '$jns',
-													 '$norek',
-													 '$tgl'
-													 )");
-	// $sql = mysql_query("SELECT * from psb_formulir where no_formulir='$noform'")or die(mysql_error());
-	// $row = mysql_fetch_array($sql);
-	// $message = "Selamat ! Konfirmasi Pembayaran Sukses. Silakan melakukan login kembali dan melakukan pengisian data. No Formulir : ".$row['no_formulir']." No Peserta : ".$auto." Password : ".$row['pass_view'];
-	// $subject = "Konfirmasi Pembayaran Formulir Berhasil";
-	// $headers = "MIME-Version: 1.0" . "\r\n";
-	// $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
-
-	// // More headers
-	// $headers .= 'From: smamitrabintaro.web.id <noreply@yourwebsite.com>'."\r\n" . 'Reply-To: '.$name.' <'.$email.'>'."\r\n";
-	// $headers .= 'Cc: admin@yourdomain.com' . "\r\n"; //untuk cc lebih dari satu tinggal kasih koma
-	// @mail($to,$subject,$message,$headers);
-
-	if($input){
-		echo "berhasil";
+													 tgl_pembayaran,bukti_tf,detail,folder,dateupload) VALUES 
+													 ("'.$nopes.'",
+											 		 "'.$noform.'",
+													 "'.$narim.'",
+													 "'.$nabank.'",
+													 "'.$tobay.'",
+													 "'.$jns.'",
+													 "'.$norek.'",
+													 "'.$tgl.'","'.$file_name.'", "'.$_POST['keterangan'].'", 
+								  "'.$folder.'", "'.date('Y-m-d H:i:s').'")');
+			echo '<div id="msg">Berhasil mengupload file '.$file_name.'</div>';
+		} else{
+			echo "Proses upload eror";
+		}
 	}
-	else{
-		echo "<font color='#00FF00'>Data Gagal Disimpan...</font>";
-	}
-}
-else{
-	echo "<font color='#FF0000'>Kode captcha yang Anda Masukan Salah</font>";
-}
+// 	$input = mysql_query("INSERT INTO psb_konfirmasi(no_perserta, 
+// 													 no_formulir,
+// 													 nama_pembayaran,
+// 													 nama_bank,
+// 													 total_pembayaran,
+// 													 jenis_pembayarn,
+// 													 no_rek,
+// 													 tgl_pembayaran) 
+// 											 VALUES ('$nopes',
+// 											 		 '$noform',
+// 													 '$narim',
+// 													 '$nabank',
+// 													 '$tobay',
+// 													 '$jns',
+// 													 '$norek',
+// 													 '$tgl'
+// 													 )");
 
+// 	if($input){
+// 		echo "berhasil";
+// 	}
+// 	else{
+// 		echo "<font color='#00FF00'>Data Gagal Disimpan...</font>";
+// 	}
+// // }
+// else{
+// 	echo "<font color='#FF0000'>Kode captcha yang Anda Masukan Salah</font>";
+// }
+}
 ?>

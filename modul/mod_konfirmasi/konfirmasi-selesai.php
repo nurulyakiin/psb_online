@@ -59,12 +59,6 @@ $row=mysql_fetch_array($sql);
     		<td colspan="2">&nbsp;</td>
   	</tr>
   	<tr>
-    		<td colspan="2">Password:</td>
-   		<td>:</td>
-    		<td><?= $row['pass_view']?></td>
-    		<td colspan="2">&nbsp;</td>
-  	</tr>
-  	<tr>
     		<td colspan="4">&nbsp;</td>
     		<td width="1%">&nbsp;</td>
   	</tr>

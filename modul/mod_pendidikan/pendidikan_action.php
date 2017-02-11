@@ -8,7 +8,7 @@ $asal  	= $_POST['asal'];
 $sttb  	= $_POST['sttb'];
 $lama  	= $_POST['lama'];
 $tgl  	= $_POST['tgl'];
-$pindah = $_POST['pindah'];
+// $pindah = $_POST['pindah'];
 
 // $sql = mysql_query("SELECT * FROM psb_formulir WHERE nisn = '$_SESSION[nisn]'")or die(mysql_error());
 // $row = mysql_fetch_array($sql);
@@ -19,8 +19,8 @@ $pindah = $_POST['pindah'];
 // VALUES (NULL, '3434', 'dfdf', 'df', '3435', 
 // 	'sdfdsf', 'dfd', '3435', 'df', '34', '342', 'dsf', 'dsfds', 'fsdf', 'sdfs', 'dds', '3', '2', 'dxd', 'fd');
 
-$input = mysql_query("INSERT INTO psb_pendidikan(id_keterangansiswa, asal_sekolah, tanggal_sttb, lama_belajar, tanggal_diterima, pindahan_dari)
-				 	VALUES ('$id_keterangansiswa', '$asal', '$sttb', '$lama', '$tgl', '$pindah')");
+$input = mysql_query("INSERT INTO psb_pendidikan(id_keterangansiswa, asal_sekolah, tanggal_sttb, lama_belajar, tanggal_diterima)
+				 	VALUES ('$id_keterangansiswa', '$asal', '$sttb', '$lama', '$tgl')");
 // var_dump('$id_keterangansiswa', '$tempat', '$jarak', '$kendar', '$ref');
 // exit;
 

@@ -6,7 +6,10 @@
     <meta name="description" content="Free HTML Starter Templates and Themes for Bootstrap - Up to date for Bootstrap 3! An even faster way to develop websites in Bootstrap!">
 
 <?php
-include_once( 'includes/meta.php'); ?>
+include_once( 'includes/meta.php'); 
+// include "modul/mod_konfirmasi/konfirmasi_action.php";
+?>
+
 </head>
 
 <body>
@@ -27,7 +30,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
           </ol>
         </div>
         <div class="col-lg-12">
-	<form class="navbar-form navbar-center" method="post" action="#" id="konfirmasi">
+	<form class="navbar-form navbar-center" method="post" action="modul/mod_konfirmasi/konfirmasi_action.php" id="konfirmasi" enctype="multipart/form-data">
   		<table width="100%" border="0" align="center">
       <tr>
           <td>No. Pendaftar Peserta </td>
@@ -113,7 +116,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
     <tr>
       <td>Bukti Transfer</td>
       <td>:</td>
-       <td><input class="form-control" style="width: 210px" name="bukti" id="bukti" type="file" size="15" /></td>
+       <td><input class="form-control" style="width: 210px" name="data_upload" id="data_upload" type="file" size="15" /></td>
         </tr>
         <tr>
       <td><br></td>
@@ -161,7 +164,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 <?php include_once( 'includes/footer.php'); ?>
 </body>
 </html>
-<script type="text/javascript" src="js/jquery.validate.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script src="js/jquery.metadata.js" type="text/javascript"></script>
 <link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css"/>
 
@@ -207,7 +210,7 @@ $(document).ready(function() {
         norek: {required: true,number: true},
         tobay: {required: true,number: true},
         captcha:{required: true},
-        bukti:{required: true}
+        data_upload:{required: true}
         },
     messages: {
         noform: {required: "No Formulir harus diisi"},
@@ -219,7 +222,7 @@ $(document).ready(function() {
         tgl: {required: "Tanggal Kirim harus diisi"},
         norek: {required: "No Rekening harus diisi",number: "No rekening harus Angka"},
         tobay: {required: "Total Bayar harus diisi"},
-        bukti: {required: "Bukti transfer harus diupload"},
+        data_upload: {required: "Bukti transfer harus diupload"},
         captcha:  "Captcha harus diisi"
         },
     errorPlacement: function(error, element) {
@@ -236,10 +239,13 @@ $(document).ready(function() {
         var norek = $("input[name=norek]").val();
         var tobay = $("input[name=tobay]").val();
         var tgl = $("input[name=tgl]").val();
-        var bukti = $("input[name=bukti]").val();
+        var data_upload = $("input[name=data_upload]").val();
         $.ajax({
           type:"POST",
           url:"modul/mod_konfirmasi/konfirmasi_action.php",
+          contentType: false,       // The content type used when sending data to the server.
+          cache: false,             // To unable request pages to be cached
+          processData:false,        // To send DOMDocument or non processed data file it is set to false
           data:dataForm,
           success: function(data){
             if(data=='berhasil'){
@@ -257,3 +263,4 @@ $(document).ready(function() {
   })
 });
 </script>
+ -->

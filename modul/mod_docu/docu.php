@@ -26,9 +26,13 @@ if ($_POST){
         $filesize = $_FILES['userfile']['size'][$i];
         $filename = $_FILES['userfile']['name'][$i];
         $destination = $path['dirname'] . '/images/document/' . $filename;
-        if (move_uploaded_file($tmp_file, $_SERVER['DOCUMENT_ROOT'] . $destination))
+        if ($tmp_file=='' || $filetype=='' || $filesize=='' || $filename=='')
         {
-            $result = mysql_query ("INSERT INTO psb_dokumen(id_keterangansiswa, location,
+            echo "<p align='center'>lampirkan file </p>" ;
+        }
+        elseif (move_uploaded_file($tmp_file, $_SERVER['DOCUMENT_ROOT'] . $destination))
+        {
+			$result = mysql_query ("INSERT INTO psb_dokumen(id_keterangansiswa, location,
                 filetype, filename, filesize)
                 VALUES ('$row[id]', '" . $destination . "','" . $filetype .
                 "','" . $filename . "'," . $filesize . ")");
@@ -36,11 +40,9 @@ if ($_POST){
     }
     header('Location: ?module=akun');
 }
-// $sql = mysql_query("SELECT B.id_keterangansiswa AS id FROM psb_formulir AS A JOIN psb_keterangansiswa AS B ON A.id_formulir=B.id_formulir")or die(mysql_error());
-// $row = mysql_fetch_array($sql);
 ?>
 <div id="info" align="center"></div>
-<form method="post" enctype="multipart/form-data"><input type="hidden" name="upload" value="1" />
+<form method="post" enctype="multipart/form-data" onSubmit="return validasi(this)"><input type="hidden" name="upload" value="1" />
 	<table width="75%" border="0" align="center">
 	  <tr>
 		<td colspan="9" bgcolor="#33CC33"><b>D. KETERANGAN WALI</b></td>
@@ -81,14 +83,14 @@ if ($_POST){
 		<td>:</td>
 		<td colspan="4"><input class="form-control" style="width: 210px" name="userfile[]" type="file" size="15" /></td>
 	  </tr>
-	  <tr>
+	 <!--  <tr>
 		<td><br></td>
 		</tr>
 		<tr>
 		<td>Scan SKB</td>
 		<td>:</td>
 		<td colspan="4"><input class="form-control" style="width: 210px" name="userfile[]" type="file" size="15" /></td>
-	  </tr>
+	  </tr> -->
 	  <tr>
 		<td><br></td>
 		</tr>
