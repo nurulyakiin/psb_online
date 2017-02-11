@@ -56,13 +56,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
             <td>:</td>
             <td><select name="jns" class="form-control" style="width: 300px">
                 <option value="Formulir Pendaftaran">Formulir Pendaftaran</option>
-                <option value="MOS">MOS</option>
-                <option value="SPP">SPP</option>
-                <option value="Seragam">Seragam</option>
-                <option value="LKS Semester 1">LKS Semester 1</option>
-                <option value="Atribut">Atribut</option>
-                <option value="Cover Ijazah">Cover Ijazah</option>
-                <option value="Kartu Pelajar & Photo">Kartu Pelajar & Photo</option>
+                <option value="Biaya Lainnya">Biaya Lainnya</option>
               </select></td>
         </tr>
         <tr>
@@ -116,6 +110,15 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
     <tr>
     <td><br></td>
     </tr>
+    <tr>
+      <td>Bukti Transfer</td>
+      <td>:</td>
+       <td><input class="form-control" style="width: 210px" name="bukti" id="bukti" type="file" size="15" /></td>
+        </tr>
+        <tr>
+      <td><br></td>
+      </tr>
+      <tr>
     		<tr>
       			<td>Gambar Verifikasi </td>
       			<td>:</td>
@@ -203,7 +206,8 @@ $(document).ready(function() {
         tgl: {required: true},
         norek: {required: true,number: true},
         tobay: {required: true,number: true},
-        captcha:{required: true}
+        captcha:{required: true},
+        bukti:{required: true}
         },
     messages: {
         noform: {required: "No Formulir harus diisi"},
@@ -215,6 +219,7 @@ $(document).ready(function() {
         tgl: {required: "Tanggal Kirim harus diisi"},
         norek: {required: "No Rekening harus diisi",number: "No rekening harus Angka"},
         tobay: {required: "Total Bayar harus diisi"},
+        bukti: {required: "Bukti transfer harus diupload"},
         captcha:  "Captcha harus diisi"
         },
     errorPlacement: function(error, element) {
@@ -231,6 +236,7 @@ $(document).ready(function() {
         var norek = $("input[name=norek]").val();
         var tobay = $("input[name=tobay]").val();
         var tgl = $("input[name=tgl]").val();
+        var bukti = $("input[name=bukti]").val();
         $.ajax({
           type:"POST",
           url:"modul/mod_konfirmasi/konfirmasi_action.php",

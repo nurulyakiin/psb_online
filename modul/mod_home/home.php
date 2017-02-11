@@ -101,22 +101,22 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 intro-marketing-box">
                     <h2><i class="fa fa-users"></i> Prosedur Pendaftaran</h2>
-                    <p>Tata cara pendaftaran sekolah mitra bintaro.<a href="#" data-toggle="modal" data-target="#myModal"> Lihat Prosedur Pendaftaran</a></p>
+                    <p>Tata cara pendaftaran sekolah mitra bintaro.<a href="#" data-toggle="modal" data-target="#myModal1"> Lihat Prosedur Pendaftaran</a></p>
                 </div>
 		        <div class="col-lg-4 col-md-4 intro-marketing-box">
-                    <h2><i class="fa fa-envelope"></i> Bantuan Pendaftaran</h2>
-                    <p>Tanya jawab Online seputar pendaftaran dengan panitia Penerimaan Peserta Didik Baru.<a href="?module=pesan"> Kirim Pesan</a></p>
+                    <h2><i class="fa fa-envelope"></i> Rincian Biaya Pendaftaran</h2>
+                    <p>Perincian mengenai biaya pendafatarn formulir, spp, seragam, atribut, dll.<a href="#" data-toggle="modal" data-target="#myModal2"> Lihat Perincian</a></p>
                 </div>
                 <div class="col-lg-4 col-md-4 intro-marketing-box">
-                    <h2><i class="fa fa-user"></i> Sudah Punya Akun</h2>
-                    <p>Setelah melakukan pendaftaran dan memiliki akun, kamu dapat mengatur data pribadi.<a href="media.php?module=login"> Login</a></p>
+                    <h2><i class="fa fa-user"></i> Syarat Pendaftaraan</h2>
+                    <p>Syarat - syarat pembiayaan pendaftaraan.<a href="#" data-toggle="modal" data-target="#myModal3"> Lihat Persyaratan</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
+    <!-- Modal1 -->
+    <div id="myModal1" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -128,6 +128,58 @@
           <div class="modal-body">
             <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
             <img align="center" src="http://psb-smamitrabintaro.web.id/images/prosedur.jpg">
+            PROSEDUR PSB SMA Mitra Bintaro 
+            Agar terjadi tertib dalam pelaksanaan Penerimaan Siswa Baru di SMA Mitra Bintaro, maka proses pendaftaran diatur dengan langkah-langkah sebagai berikut:
+            1.  Kunjungi laman http://psb-smamitrabintaro.web.id 
+            2.  Pilih menu Daftar untuk mengisi data pendaftaran, saat berhasil daftar Anda akan menerima email resmi dari pihak sekolah yang berisi No. Formulir, No. Peserta dan Password 
+            3.  Lakukan pembayaran FORMULIR sebesar Rp 100.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO untuk dapat login dan pengisian data pendaftaran.
+            4.  Lakukan Konfirmasi Pembayaran pada menu Konfirmasi
+            5.  Setelah berhasil Login, isi data dan syarat pendaftaran secara lengkap.
+            6.  Diharuskan untuk melunasi biaya-biaya pendaftaran Lainnya sebesar Rp. 1.025.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO sebagai syarat pembagian kelas dan untuk mendapatkan jadwal sementara.
+            7.  Kembali lakukan Konfirmasi Pembayaran Biaya-biaya lain.
+            8.  Jadwal Sementara dapat berubah dengan pemberitahuan dari pihak sekolah disusul dengan jadwal MOS (Masa Orientasi Siswa).
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+     <!-- Modal2 -->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Prosedur Pendaftaran</h4>
+          </div>
+          <div class="modal-body">
+            <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
+            <img align="center" src="http://psb-smamitrabintaro.web.id/images/rincian.jpg">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+     <!-- Modal3 -->
+    <div id="myModal3" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Prosedur Pendaftaran</h4>
+          </div>
+          <div class="modal-body">
+            <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
+            <img align="center" src="http://psb-smamitrabintaro.web.id/images/syarat.jpg">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -170,8 +222,6 @@
                         </a>
                     </div>
                     <div class="col-lg-12 col-md-12">
-                        <h3>Brosur Biaya Pendaftaran</h3>
-                        <p><em>SMA Mitra Bintaro </em> memberikan biaya pendidikan yang terjangkau.</p>
                         <div class="btn-group"><a class="btn btn-primary" href="img/pendaftaran.png" target="_blank">Lihat &amp; Unduh</a>
                         </div>
                     </div>
