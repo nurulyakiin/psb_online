@@ -127,17 +127,22 @@
           </div>
           <div class="modal-body">
             <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
-            <img align="center" src="http://psb-smamitrabintaro.web.id/images/prosedur.jpg">
-            PROSEDUR PSB SMA Mitra Bintaro 
-            Agar terjadi tertib dalam pelaksanaan Penerimaan Siswa Baru di SMA Mitra Bintaro, maka proses pendaftaran diatur dengan langkah-langkah sebagai berikut:
-            1.  Kunjungi laman http://psb-smamitrabintaro.web.id 
-            2.  Pilih menu Daftar untuk mengisi data pendaftaran, saat berhasil daftar Anda akan menerima email resmi dari pihak sekolah yang berisi No. Formulir, No. Peserta dan Password 
-            3.  Lakukan pembayaran FORMULIR sebesar Rp 100.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO untuk dapat login dan pengisian data pendaftaran.
-            4.  Lakukan Konfirmasi Pembayaran pada menu Konfirmasi
-            5.  Setelah berhasil Login, isi data dan syarat pendaftaran secara lengkap.
-            6.  Diharuskan untuk melunasi biaya-biaya pendaftaran Lainnya sebesar Rp. 1.025.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO sebagai syarat pembagian kelas dan untuk mendapatkan jadwal sementara.
-            7.  Kembali lakukan Konfirmasi Pembayaran Biaya-biaya lain.
-            8.  Jadwal Sementara dapat berubah dengan pemberitahuan dari pihak sekolah disusul dengan jadwal MOS (Masa Orientasi Siswa).
+            <img align="center" width="550px" height="600" src="http://psb-smamitrabintaro.web.id/images/prosedur.jpg">
+            <p><strong>PROSEDUR PSB SMA Mitra Bintaro</strong></p>
+
+<p>Agar terjadi tertib dalam pelaksanaan Penerimaan Siswa Baru di SMA Mitra Bintaro, maka proses pendaftaran diatur dengan langkah-langkah sebagai berikut:</p>
+
+<ol>
+    <li>Kunjungi laman <a href="http://psb-smamitrabintaro.web.id">http://psb-smamitrabintaro.web.id</a></li>
+    <li>Pilih menu Daftar untuk mengisi data pendaftaran, saat berhasil daftar Anda akan menerima email resmi dari pihak sekolah yang berisi No. Formulir, No. Peserta dan Password</li>
+    <li>Lakukan pembayaran FORMULIR sebesar Rp 100.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO untuk dapat login dan pengisian data pendaftaran.</li>
+    <li>Lakukan Konfirmasi Pembayaran pada menu Konfirmasi</li>
+    <li>Setelah berhasil Login, isi data dan syarat pendaftaran secara lengkap.</li>
+    <li>&nbsp;Diharuskan untuk melunasi biaya-biaya pendaftaran Lainnya sebesar Rp. 1.025.000;- via ATM ke nomor rekening BNI 301868760 a.n. SMA MITRA BINTARO sebagai syarat pembagian kelas dan untuk mendapatkan jadwal sementara.</li>
+    <li>&nbsp;Kembali lakukan Konfirmasi Pembayaran Biaya-biaya lain.</li>
+    <li>&nbsp;Jadwal Sementara dapat berubah dengan pemberitahuan dari pihak sekolah disusul dengan jadwal MOS (Masa Orientasi Siswa).</li>
+</ol>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -158,7 +163,7 @@
           </div>
           <div class="modal-body">
             <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
-            <img align="center" src="http://psb-smamitrabintaro.web.id/images/rincian.jpg">
+            <img align="center" width="550px" src="http://psb-smamitrabintaro.web.id/images/rincian.jpg">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -179,7 +184,7 @@
           </div>
           <div class="modal-body">
             <!-- <div style="background-image:url('http://psb-smamitrabintaro.web.id/images/prosedur.jpg');"></div> -->
-            <img align="center" src="http://psb-smamitrabintaro.web.id/images/syarat.jpg">
+            <img align="center" width="550px" src="http://psb-smamitrabintaro.web.id/images/syarat.jpg">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
