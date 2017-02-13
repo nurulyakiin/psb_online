@@ -7,8 +7,9 @@ $.metadata.setType("attr", "validate");
 $(document).ready(function() {
 	$("#biodata").validate({
 			rules: {		
-					nisn: {required: true,number: true,minlength: 10,maxlength: 10},
-					nm_siswa: {required: true},
+					id_formulir: {required: true},
+					nisn: {required: true,number: true,maxlength: 10},
+					nmlkp: {required: true},
 					tmp_lahir: {required: true},
 					tgl_lahir: {required: true},
 					kelamin: {required: true},
@@ -16,31 +17,21 @@ $(document).ready(function() {
 					urut_anak: {required: true,number:true,maxlength:1},
 					urut_anak1: {required: true,number:true,maxlength:1},
 					status_anak: {required: true},
-					hp_siswa: {required: true,number: true,minlength: 11,maxlength: 12},
-					almt_siswa: {required: true},
-					tmpt_siswa: {required: true},
-					kendaraan: {required: true},	
-					berat_bdn: {required: true,number: true,minlength: 2,maxlength: 3},	
-					tggi_bdn: {required: true,number: true,minlength: 3,maxlength: 3},	
-					darah: {required: true},
-					asal_sklh: {required: true},
-					almt_sklh: {required: true},
-					kpl_sekolah: {required: true},
-					asal_kls: {required: true},
-					tlp_sklh: {required: true,number: true,minlength: 10,maxlength: 10},
-					nm_ayah: {required: true},
-					nm_ibu: {required: true},
-					nm_ibu: {required: true},
-					almt_ortu: {required: true},
-					hp_ortu: {required: true,number: true,minlength: 11,maxlength: 12},
-					kerja_ayah: {required: true},	
-					kerja_ibu: {required: true},
-					hasil_ortu: {required: true,number: true},	
-					biaya: {required: true}
+					hp_siswa: {required: true, number: true, minlength: 11, maxlength: 12},
+					nmpgl: {required: true},
+					brtbdn: {required: true,number: true,minlength: 2,maxlength: 3},	
+					tgibdn: {required: true,number: true,minlength: 3,maxlength: 3},
+					goldar: {required: true},
+					pykt: {required: true},
+					jasman: {required: true},
+					kkn: {required: true},
+					seragam: {required: true},
+					bhs: {required: true}
 					},
 		messages:	{
-					nisn: {required: "NISN Harus Diisi",number: "NISN Harus Angka",minlength: "Minimal 10 Digit",maxlength: "Maksimal 10 Digit"},
-					nm_siswa: {required: "Nama Siswa Harus Diisi"},
+					id_formulir: {required: "Nama Siswa Harus Diisi"},
+					nisn: {required: "NISN Harus Diisi",number: "NISN Harus Angka",maxlength: "Maksimal 10 Digit"},
+					nmlkp: {required: "Nama Siswa Harus Diisi"},
 					tmp_lahir: {required: "Tempat Lahir Harus Diisi"},
 					tgl_lahir: {required: "Tanggal Lahir Harus Diisi"},
 					kelamin: {required: "Jenis Kelamin Harus Diisi"},
@@ -49,34 +40,25 @@ $(document).ready(function() {
 					urut_anak1: {required: "Harus Diisi",number:"Hanya Boleh Angka",maxlength:"Maksimal 1 Digit"},
 					status_anak: {required: "Status Anak Harus Diisi"},
 					hp_siswa: {required: "Nomor HP Harus Diisi",number: "Nomor HP Hanya Boleh Angka",minlength: "Nomor HP Minimal 11 Digit",maxlength: "Nomor HP Maksimal 12 Digit"},
-					almt_siswa: {required: "Alamat Siswa Harus Diisi"},
-					tmpt_siswa: {required: "Harus Diisi"},
-					kendaraan: {required: "Harus Diisi"},	
-					berat_bdn: {required: "Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 2 Digit",maxlength: "Maksimal 3 Digit"},	
-					tggi_bdn: {required: "Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 3 Digit",maxlength: "Maksimal 3 Digit"},	
-					darah: {required: "Harus Diisi"},
-					asal_sklh: {required: "Harus Diisi"},
-					almt_sklh: {required: "Harus Diisi"},
-					kpl_sekolah: {required: "Harus Diisi"},
-					asal_kls: {required: "Harus Diisi"},
-					tlp_sklh: {required: "No Telepon Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 10 Digit",maxlength: "Maksimal 10 Digit"},
-					nm_ayah: {required: "Harus Diisi"},
-					nm_ibu: {required: "Harus Diisi"},
-					nm_ibu: {required: "Harus Diisi"},
-					almt_ortu: {required: "Harus Diisi"},
-					hp_ortu: {required: "No HP Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 11 Digit",maxlength: "Maksimal 12 Digit"},
-					kerja_ayah: {required: "Harus Diisi"},	
-					kerja_ibu: {required: "Harus Diisi"},
-					hasil_ortu: {required: "Harus Diisi",number: "Hanya Boleh Angka"},	
-					biaya: {required: "Harus Diisi"}
+					alamat: {required: "Alamat Siswa Harus Diisi"},
+					goldar: {required: "Harus Diisi"},
+					jasman: {required: "Harus Diisi"},	
+					brtbdn: {required: "Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 2 Digit",maxlength: "Maksimal 3 Digit"},	
+					tgibdn: {required: "Harus Diisi",number: "Hanya Boleh Angka",minlength: "Minimal 3 Digit",maxlength: "Maksimal 3 Digit"},	
+					nmpgl: {required: "Harus Diisi"},
+					pykt: {required: "Harus Diisi"},	
+					kkn: {required: "Harus Diisi"},
+					seragam: {required: "Seragam Harus Diisi"},
+					bhs: {required: "Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
 					error.appendTo(element.parent("td"));
 					},
 		submitHandler: function(form) {
 			var dataForm = $("#biodata").serialize();
+			var id_formulir = $("input[name=id_formulir]").val();
 			var nisn = $("input[name=nisn]").val();
-			var nm_siswa = $("input[name=nm_siswa]").val();
+			var nmlkp = $("input[name=nmlkp]").val();
 			var tmp_lahir = $("input[name=tmp_lahir]").val();
 			var tgl_lahir = $("input[name=tgl_lahir]").val();
 			var kelamin = $("input[name=kelamin]").val();
@@ -85,25 +67,16 @@ $(document).ready(function() {
 			var urut_anak1 = $("input[name=urut_anak1]").val();
 			var status_anak = $("input[name=status_anak]").val();
 			var hp_siswa = $("input[name=hp_siswa]").val();
-			var almt_siswa = $("input[name=almt_siswa]").val();
-			var tmpt_siswa = $("input[name=tmpt_siswa]").val();
-			var kendaraan = $("input[name=kendaraan]").val();
-			var berat_bdn = $("input[name=berat_bdn]").val();
-			var tggi_bdn = $("input[name=tggi_bdn]").val();
-			var darah = $("input[name=darah]").val();
-			var asal_sklh = $("input[name=asal_sklh]").val();
-			var almt_sklh = $("input[name=almt_sklh]").val();
-			var kpl_sekolah = $("input[name=kpl_sekolah]").val();
-			var asal_kls = $("input[name=asal_kls]").val();
-			var tlp_sklh = $("input[name=tlp_sklh]").val();
-			var nm_ayah = $("input[name=nm_ayah]").val();
-			var nm_ibu = $("input[name=nm_ibu]").val();
-			var almt_ortu = $("input[name=almt_ortu]").val();
-			var hp_ortu = $("input[name=hp_ortu]").val();
-			var kerja_ayah = $("input[name=kerja_ayah]").val();
-			var kerja_ibu = $("input[name=kerja_ibu]").val();
-			var hasil_ortu = $("input[name=hasil_ortu]").val();
-			var biaya = $("input[name=biaya]").val();
+			var alamat = $("input[name=alamat]").val();
+			var goldar = $("input[name=goldar]").val();
+			var jasman = $("input[name=jasman]").val();
+			var brtbdn = $("input[name=brtbdn]").val();
+			var tgibdn = $("input[name=tgibdn]").val();
+			var nmpgl = $("input[name=nmpgl]").val();
+			var pykt = $("input[name=pykt]").val();
+			var kkn = $("input[name=kkn]").val();
+			var bhs = $("input[name=bhs]").val();
+			var seragam = $("input[name=seragam]").val();
 
 			$.ajax({
 				type:"POST",
