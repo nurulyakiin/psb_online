@@ -96,7 +96,7 @@ while($items=mysql_fetch_array($res)){
 	<td class="tbl-num"><?=$berangkat_dengan?></td>
 	<td class="tbl-cell"><?=$referensi?></td>
 	<td class="tbl-controls">
-		<?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$id_tempattinggal","Edit"); echo"$edit";?>
+		<?$edit=Edit("?module=$_GET[module]&act=edit_alamat&id=$id_tempattinggal","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_tempattinggal","$nama_lengkap","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>

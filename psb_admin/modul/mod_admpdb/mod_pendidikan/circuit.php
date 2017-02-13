@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'pendidikan.php';
     break;
-  case 'edit_bio':
+  case 'edit_pen':
 		include 'pendidikan_form.php';
     break;  
   case 'v_edit':

@@ -28,7 +28,7 @@ $row=mysql_fetch_array($sql);
 		<tr>
 		<td>Jarak Tempat Tinggal dengan SMA Mitra Bintaro</td>
 		<td>:</td>
-		<td colspan="4"><input class="form-control" placeholder="Km" style="width: 50px" name="jarak" type="text" id="jarak" value="" size="15" /></td>
+		<td colspan="4"><input class="form-control" placeholder="Km" style="width: 50px" name="jarak" type="text" id="jarak" value="<?= $row['jarak']?>" size="15" /></td>
 	  </tr>
 	  <tr>
 		<td><br></td>
@@ -50,7 +50,7 @@ $row=mysql_fetch_array($sql);
 	  <tr>
 		<td>Referensi SMA Mitra Bintaro dari</td>
 		<td>:</td>
-		<td colspan="4"><input class="form-control" style="width: 200px" name="ref" type="text" id="ref" value="" size="15" /></td>
+		<td colspan="4"><input class="form-control" style="width: 200px" name="ref" type="text" id="ref" value="<?= $row['referensi']?>" size="15" /></td>
 	  </tr>
 	  <tr>
 		<td><br></td>

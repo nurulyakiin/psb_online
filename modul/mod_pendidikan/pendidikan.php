@@ -99,7 +99,7 @@ $(document).ready(function() {
 					asal: {required: true},
 					sttb: {required: true},
 					lama: {required: true,number: true},
-					tgl: {required: true},
+					tgl: {required: true}
 					// pindah: {required: true}
 					},
 		messages:	{
@@ -107,7 +107,7 @@ $(document).ready(function() {
 					asal: {required: "Asal Sekolah Harus Diisi"},
 					sttb: {required: "STTB Harus Diisi"},
 					lama: {required: "Lamanya Harus Diisi",number: "Lamanya Harus Angka"},
-					tgl: {required: "Tanggal Harus Diisi"},
+					tgl: {required: "Tanggal Harus Diisi"}
 					// pindah: {required: "Pindah Tanggal Harus Diisi"}
 					},
 		errorPlacement: function(error, element) {
