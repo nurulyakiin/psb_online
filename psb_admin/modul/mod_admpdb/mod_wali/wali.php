@@ -95,7 +95,7 @@ while($items=mysql_fetch_array($res)){
 	<td clASs="tbl-cell"><?=$ttl?></td>
 	<td clASs="tbl-cell"><?=$no_telp?></td>
 	<td clASs="tbl-controls">
-		<!-- <?$edit=Edit("?module=$_GET[module]&act=edit_bio&id=$nisn","Edit"); echo"$edit";?> -->
+		<?$edit=Edit("?module=$_GET[module]&act=edit_wali&id=$id_wali","Edit"); echo"$edit";?>
 		<?$hapus=Hapus("?module=$_GET[module]&act=del&id=$id_wali","$nama_lengkap","Hapus"); echo"$hapus";?>	
 	</td>
 </tr>

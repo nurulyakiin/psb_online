@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'wali.php';
     break;
-  case 'edit_bio':
+  case 'edit_wali':
 		include 'wali_form.php';
     break;  
   case 'v_edit':
