@@ -65,7 +65,7 @@ $row=mysql_fetch_array($sql);
 	  </tr>
 	  <tr>
 		<td colspan="1"><input name="submit" id="submit" class="btn btn-primary" type="submit" value="SIMPAN" />
-		<input name="reset" id="reset" class="btn btn-warning" onclick="window.location.replace('?module=akun')" type="button" value="BATAL" /></td>
+		<input name="reset" id="reset" class="btn btn-warning" onclick="window.location.replace('?module=alamat')" type="button" value="BATAL" /></td>
 	  </tr>
 	  <tr>
 		<td colspan="6"></td>

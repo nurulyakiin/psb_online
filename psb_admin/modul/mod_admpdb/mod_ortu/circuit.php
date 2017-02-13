@@ -3,7 +3,7 @@ switch(@$_GET['act']){
   default:
 		include 'ortu.php';
     break;
-  case 'edit_bio':
+  case 'edit_ortu':
 		include 'ortu_form.php';
     break;  
   case 'v_edit':
