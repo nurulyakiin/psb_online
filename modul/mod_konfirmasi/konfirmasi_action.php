@@ -67,6 +67,7 @@ if($_POST['captcha']==$_SESSION['captcha_session']){
 													 "'.$tgl.'","'.$file_name.'", "'.$_POST['keterangan'].'", 
 								  "'.$folder.'", "'.date('Y-m-d H:i:s').'")');
 			echo '<script type="text/javascript">alert("Berhasil mengupload file '.$file_name.'");</script>';
+			echo "<script>window.history.back()</script>";
 	} else{
 		echo "Proses upload eror";
 	}

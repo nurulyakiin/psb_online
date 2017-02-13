@@ -30,7 +30,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
           </ol>
         </div>
         <div class="col-lg-12">
-	<form class="navbar-form navbar-center" method="post" action="modul/mod_konfirmasi/konfirmasi_action.php" id="konfirmasi" enctype="multipart/form-data" name="konfirmasi">
+	<form class="navbar-form navbar-center" method="post" action="modul/mod_konfirmasi/konfirmasi_action.php" id="konfirmasi" enctype="multipart/form-data" name="konfirmasi" onSubmit="return validasi(this)">
   		<table width="100%" border="0" align="center">
       <tr>
           <td>No. Pendaftar Peserta </td>
@@ -121,7 +121,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
         <tr>
       <td><br></td>
       </tr>
-      <tr>
+      <!-- <tr>
     		<tr>
       			<td>Gambar Verifikasi </td>
       			<td>:</td>
@@ -139,7 +139,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
       			<td>&nbsp;</td>
       			<td>&nbsp;</td>
      			   <td><input type="text" class="form-control" name="captcha" id="captcha" style="width: 165px"/></td>
-   		</tr>
+   		</tr> -->
   		<tr>
 			<td><button type="submit" id="submit" class="btn btn-primary"><i class="small fa fa-pencil"></i> Konfirmasi</button></td>
 			<td>&nbsp;</td>
@@ -166,8 +166,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 </html>
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script src="js/jquery.metadata.js" type="text/javascript"></script>
-<link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css"/>
-
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <script type="text/javascript">
 $.metadata.setType("attr", "validate");
 $(document).ready(function() {
@@ -198,70 +197,55 @@ $(document).ready(function() {
    }
   });
   })
-  $("#konfirmasi").validate({
-    rules: {  
-        noform: {required: true},   
-        nopes: {required: true,number: true, minlength: 9, maxlength:9},
-        jns: {required: true},
-        email: {required: true,email: true},
-        nabank: {required: true},
-        narim: {required: true},
-        tgl: {required: true},
-        norek: {required: true,number: true},
-        tobay: {required: true,number: true},
-        data_upload:{required: true},
-        captcha:{required: true}        
-        },
-    messages: {
-        noform: {required: "No Formulir harus diisi"},
-        nopes: {required: "No Peserta harus diisi",number: "No Peserta harus Angka",minlength: "Minimal 9 Digit",maxlength: "Maksimal 9 Digit"},
-        jns: {required: "Jenis Pembayaran harus diisi"},
-        email: {required: "Email harus diisi",email: "Masukkan E-mail yang valid"},
-        nabank: {required: "Nama Bank harus diisi"},
-        narim: {required: "Nama Pengirim harus diisi"},
-        tgl: {required: "Tanggal Kirim harus diisi"},
-        norek: {required: "No Rekening harus diisi",number: "No rekening harus Angka"},
-        tobay: {required: "Total Bayar harus diisi"},
-        data_upload: {required: "Bukti transfer harus diupload"},
-        captcha:  "Captcha harus diisi"
-        },
-    errorPlacement: function(error, element) {
-        error.appendTo(element.parent("td"));
-        },
-    submitHandler: function(form) {
-        var dataForm = $("#konfirmasi").serialize();
-        var noform = $("input[name=noform]").val();
-        var nopes = $("input[name=nopes]").val();
-        var email = $("input[name=email]").val();
-        var jns = $("input[name=jns]").val();
-        var nabank = $("input[name=nabank]").val();
-        var narim = $("input[name=narim]").val();
-        var norek = $("input[name=norek]").val();
-        var tobay = $("input[name=tobay]").val();
-        var tgl = $("input[name=tgl]").val();
-        var data_upload = $("file[name=data_upload]").val();
-        $.ajax({
-          type:"POST",
-          url:"modul/mod_konfirmasi/konfirmasi_action.php",
-          contentType: false,       // The content type used when sending data to the server.
-          cache: false,             // To unable request pages to be cached
-          processData:false,        // To send DOMDocument or non processed data file it is set to false
-          data:dataForm,
-          success: function(data){
-            if(data=='berhasil'){
-              // console.log("coba");
-              window.location.href = '?module=konfirmasi-selesai&id='+nopes;
-            }
-            else{
-              // console.log("data");
-              // url:"modul/mod_konfirmasi/konfirmasi_action.php";
-              $("#info").html(data);
-              $("#info").fadeOut(5000);
-            }
-          }
-        });
-      return false;
-    }
-  })
 });
+</script>
+<script language="javascript">
+function validasi(form){
+  if (form.nopes.value == ""){
+    alert("Anda belum mengisikan No Peserta.");
+    form.nopes.focus();
+    return (false);
+  }
+  if (form.noform.value == ""){
+    alert("Anda belum mengisikan No Formulir.");
+    form.noform.focus();
+    return (false);
+  }
+  if (form.email.value == ""){
+    alert("Anda belum mengisikan Email.");
+    form.email.focus();
+    return (false);
+  }
+  if (form.nabank.value == ""){
+    alert("Anda belum mengisikan Nama Bank.");
+    form.nabank.focus();
+    return (false);
+  }
+  if (form.narim.value == ""){
+    alert("Anda belum mengisikan Nama Pengirim.");
+    form.narim.focus();
+    return (false);
+  }
+  if (form.norek.value == ""){
+    alert("Anda belum mengisikan No Rekening.");
+    form.norek.focus();
+    return (false);
+  }
+  if (form.tobay.value == ""){
+    alert("Anda belum mengisikan Total Bayar.");
+    form.tobay.focus();
+    return (false);
+  }   
+  if (form.data_upload.value == ""){
+    alert("Anda belum mengisikan Total Bayar.");
+    form.data_upload.focus();
+    return (false);
+  }     
+  if (form.tgl.value == ""){
+    alert("Anda belum mengisikan Password.");
+    form.tgl.focus();
+    return (false);
+  }
+  return (true);
+}
 </script>
