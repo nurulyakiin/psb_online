@@ -21,6 +21,9 @@ if ($_GET['module']=='home'){
 elseif ($_GET['module']=='biodata'){
   include 'modul/mod_biodata/biodata.php';
 }
+elseif ($_GET['module']=='profil'){
+  include 'modul/mod_profil/profil.php';
+}
 elseif ($_GET['module']=='alamat'){
   include 'modul/mod_alamat/alamat.php';
 }

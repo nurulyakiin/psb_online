@@ -30,7 +30,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
           </ol>
         </div>
         <div class="col-lg-12">
-	<form class="navbar-form navbar-center" method="post" action="modul/mod_konfirmasi/konfirmasi_action.php" id="konfirmasi" enctype="multipart/form-data">
+	<form class="navbar-form navbar-center" method="post" action="modul/mod_konfirmasi/konfirmasi_action.php" id="konfirmasi" enctype="multipart/form-data" name="konfirmasi">
   		<table width="100%" border="0" align="center">
       <tr>
           <td>No. Pendaftar Peserta </td>
@@ -164,7 +164,7 @@ $result = mysql_query("SELECT * FROM psb_formulir ORDER BY id_formulir")or die(m
 <?php include_once( 'includes/footer.php'); ?>
 </body>
 </html>
-<!-- <script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
 <script src="js/jquery.metadata.js" type="text/javascript"></script>
 <link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css"/>
 
@@ -209,8 +209,8 @@ $(document).ready(function() {
         tgl: {required: true},
         norek: {required: true,number: true},
         tobay: {required: true,number: true},
-        captcha:{required: true},
-        data_upload:{required: true}
+        data_upload:{required: true},
+        captcha:{required: true}        
         },
     messages: {
         noform: {required: "No Formulir harus diisi"},
@@ -239,7 +239,7 @@ $(document).ready(function() {
         var norek = $("input[name=norek]").val();
         var tobay = $("input[name=tobay]").val();
         var tgl = $("input[name=tgl]").val();
-        var data_upload = $("input[name=data_upload]").val();
+        var data_upload = $("file[name=data_upload]").val();
         $.ajax({
           type:"POST",
           url:"modul/mod_konfirmasi/konfirmasi_action.php",
@@ -249,10 +249,12 @@ $(document).ready(function() {
           data:dataForm,
           success: function(data){
             if(data=='berhasil'){
+              // console.log("coba");
               window.location.href = '?module=konfirmasi-selesai&id='+nopes;
             }
             else{
-              // window.location.href = '?module=konfirmasi-selesai&id='+nopes;
+              // console.log("data");
+              // url:"modul/mod_konfirmasi/konfirmasi_action.php";
               $("#info").html(data);
               $("#info").fadeOut(5000);
             }
@@ -263,4 +265,3 @@ $(document).ready(function() {
   })
 });
 </script>
- -->

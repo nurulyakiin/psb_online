@@ -28,14 +28,21 @@ if ($_POST){
         $destination = $path['dirname'] . '/images/document/' . $filename;
         if ($tmp_file=='' || $filetype=='' || $filesize=='' || $filename=='')
         {
-            echo "<p align='center'>lampirkan file </p>" ;
+            echo '<script type="text/javascript">alert("LAMPIRKAN SEMUA FILE!!!");</script>';
         }
         elseif (move_uploaded_file($tmp_file, $_SERVER['DOCUMENT_ROOT'] . $destination))
         {
-			$result = mysql_query ("INSERT INTO psb_dokumen(id_keterangansiswa, location,
-                filetype, filename, filesize)
-                VALUES ('$row[id]', '" . $destination . "','" . $filetype .
-                "','" . $filename . "'," . $filesize . ")");
+        	if ($filesize <= 500000)
+        	{
+				$result = mysql_query ("INSERT INTO psb_dokumen(id_keterangansiswa, location,
+	                filetype, filename, filesize)
+	                VALUES ('$row[id]', '" . $destination . "','" . $filetype .
+	                "','" . $filename . "'," . $filesize . ")");
+			}
+			else
+			{
+				echo '<script type="text/javascript">alert("FILE TERLALU BESAR!!!");</script>';
+			}
         }
     }
     header('Location: ?module=akun');
@@ -48,7 +55,7 @@ if ($_POST){
 		<td colspan="9" bgcolor="#33CC33"><b>D. KETERANGAN WALI</b></td>
 	  </tr>
 	  <tr>
-		<td colspan="6">&nbsp;**KET : File tidak lebih dari 1MB
+		<td colspan="6">&nbsp;**KET : File tidak lebih dari 500kb
 		<p>&nbsp;**Sebelum upload rename dokumen dengan No Peserta</p></td>
 	  </tr>
 	  <tr>
