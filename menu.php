@@ -4,11 +4,11 @@
 	$LOG_QUERY= mysql_query("select * from psb_formulir where no_peserta='$SES'")or die (mysql_error());
 	$LOG_STATUS=mysql_fetch_array($LOG_QUERY);
 	$LOG = $LOG_STATUS['status'];
-	IF ($LOG){
-		$main = mysql_query("SELECT * FROM psb_menu WHERE aktif='Y'AND status_in=1 ORDER BY main_id");
+	if ($LOG){
+		$main = mysql_query("SELECT * FROM psb_menu WHERE aktif='Y' AND status_in=1 ORDER BY main_id");
 	}
-	ELSE{
-		$main = mysql_query("SELECT * FROM psb_menu WHERE aktif='Y' AND status_out=1");
+	else{
+		$main = mysql_query("SELECT * FROM psb_menu WHERE aktif='Y' AND status_out=1 ORDER BY main_id");
 	}
 		  while($r=mysql_fetch_array($main)){
 			 echo "<li><a href='$r[link]'><span>$r[menu]</span></a>";
