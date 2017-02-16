@@ -23,7 +23,7 @@ if (isset($sess_id) and (isset($sess_name)))
 <meta name="rating" content="general">
 <meta name="spiders" content="all">
 
-<link rel="shortcut icon" href="favicon.gif" />
+<link rel="icon" href="../img/favicon2.png" type="image/x-icon">
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link type="text/css" href="asset/calendar/themes/le-frog/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
 <link type="text/css" href="asset/calendar/themes/le-frog/ui.all.css" rel="stylesheet" />

@@ -102,6 +102,7 @@ body {
 </style>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <title>PSB Online SMA Mitra Bintaro</title>
+<link rel="icon" href="../img/favicon2.png" type="image/x-icon">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
   <?include 'modul/mod_login/login_jquery.js';?>
