@@ -60,8 +60,7 @@
 			<div class="col-lg-4 col-md-3 intro-marketing-box" align="center">
 				<p class="center"><a href="?module=wali&id=5" class="btn btn-primary fa fa-5x fa-border fa-user-md"></a>
 				<h4 class="center">Lengkapi <span class="color_one">Data Wali</span></h4>
-				<p class="center">Silahkan untuk mengisi data wali Anda *Jika Berbeda Dengan Data OrangTua atau Ibu/Ayah Tidak Ada.</p><br/>
-				<p class="center">Tidak perlu mengisi data wali Anda *Jika Sama Dengan Data OrangTua.</p><br/>
+				<p class="center">Silahkan untuk mengisi data wali Anda.</p>
 			</div>
 			<div class="col-lg-4 col-md-3 intro-marketing-box" align="center">
 				<p class="center"><a href="?module=docu&id=6" class="btn btn-primary fa fa-5x fa-border fa-print"></a>
