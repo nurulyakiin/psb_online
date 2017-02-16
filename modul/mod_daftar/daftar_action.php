@@ -64,7 +64,7 @@ if($_POST['captcha']==$_SESSION['captcha_session']){
 	$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
 
 	// More headers
-	$headers .= 'From: smamitrabintaro.com <noreply@yourwebsite.com>'."\r\n" . 'Reply-To: '.$name.' <'.$email.'>'."\r\n";
+	$headers .= 'From: psb-smamitrabintaro.web.id <noreply@yourwebsite.com>'."\r\n" . 'Reply-To: '.$name.' <'.$email.'>'."\r\n";
 	$headers .= 'Cc: admin@yourdomain.com' . "\r\n"; //untuk cc lebih dari satu tinggal kasih koma
 	@mail($to,$subject,$message,$headers);
 	if($input || @mail){
