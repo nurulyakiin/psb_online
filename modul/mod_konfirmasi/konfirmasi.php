@@ -201,6 +201,8 @@ $(document).ready(function() {
 </script>
 <script language="javascript">
 function validasi(form){
+  var number=/^[0-9]+$/;
+
   if (form.nopes.value == ""){
     alert("Anda belum mengisikan No Peserta.");
     form.nopes.focus();
@@ -226,13 +228,23 @@ function validasi(form){
     form.narim.focus();
     return (false);
   }
-  if (form.norek.value == ""){
+  if (form.norek.value == "" || form.norek.value == null){
     alert("Anda belum mengisikan No Rekening.");
     form.norek.focus();
     return (false);
   }
-  if (form.tobay.value == ""){
+  if (!form.norek.value.match(number)){
+    alert("Anda harus mengisikan No Rekening dengan angka.");
+    form.norek.focus();
+    return (false);
+  }
+  if (form.tobay.value == "" || form.tobay.value == null){
     alert("Anda belum mengisikan Total Bayar.");
+    form.tobay.focus();
+    return (false);
+  }
+  if (!form.tobay.value.match(number)){
+    alert("Anda harus mengisikan Total Bayar dengan angka.");
     form.tobay.focus();
     return (false);
   }   
